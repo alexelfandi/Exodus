@@ -1,0 +1,41 @@
+<h2>Registro</h2>
+<h5 style="color: red;">{{message}}</h5>
+<div class="contenedorInicioSesion">
+    <form action="" method="POST" >
+        <table >
+            <tr>
+                <td><label for="usuario">Usuario</label></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="username" class="form-control" id="usuario" [(ngModel)]="usuario.username"  required/></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+            </tr>
+            <tr>
+                <td><input type="email" name="email" class="form-control" id="email"  [(ngModel)]="usuario.email" required></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password</label></td>
+            </tr>
+            <tr>
+                <td><input type="password" name="password" class="form-control" id="password"  [(ngModel)]="usuario.password"  required/></td>
+            </tr>
+            <tr>
+                <td><label for="password2">Password (again)</label></td>
+            </tr>
+            <tr>
+                <td><input type="password" name="password2" class="form-control" id="password2"  [(ngModel)]="password2"  required/></td>
+            </tr>
+            <tr>
+                <td><hr></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="form-control" id="enviar" (click)="register(usuario)" value="Registrar"></td>
+            </tr>
+            <tr>
+                <td>ya tienes cuenta? <a href="nav-link" href="inicioSesion">inicia sesion</a></td>
+            </tr>
+        </table>
+    </form>
+</div>

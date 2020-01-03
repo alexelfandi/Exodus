@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+	
+@import './assets/bootstrap/bootstrap.min.css';
+* {
+    font-family:PassionOne-Bold, Passion One;
+    font-size: 1vw;
+}
+#logoExodusSvg {
+    width: 3%;
+    margin-right: 20px;
+}
+
+footer {
+    background-color: black;
+}
+

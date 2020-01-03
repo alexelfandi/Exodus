@@ -1,0 +1,27 @@
+<h2>Productos</h2>
+<hr>
+<div class="contenedor-cartas d-flex flex-wrap">
+
+	<div class="cartas" *ngFor="let producto of listaProductos" >
+	
+		<div class="card " style="width: 18rem;">
+			<img src="{{images[0]}}" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h5 class="card-title">{{producto.nombre}}</h5>
+				<hr>
+				<p class="card-text">{{producto.descripcion}}</p>
+				<hr>
+				<p class="card-text">{{producto.valor}}</p>
+			</div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item"></li>
+			</ul>
+			<div class="card-body">
+				<button style="margin-right: 10px;" type="button" (click)="irADetalles(producto.id)"
+					class="btn btn-primary">Detalles</button>
+				<button type="button" (click)="borrarProducto(producto)" class="btn btn-primary">Borrar</button>
+			</div>
+		</div>
+	
+	</div>
+</div>

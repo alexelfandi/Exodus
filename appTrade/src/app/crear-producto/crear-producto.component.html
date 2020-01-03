@@ -1,0 +1,39 @@
+<h2>Crear producto</h2>
+<div class="contenedorInicioSesion">
+    <form class="">
+        <table >
+            <tr>
+                <td><label for="nombre">nombre</label></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="producto.nombre" required /></td>
+            </tr>
+            <tr>
+                <td><label for="valor">valor</label></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="valor" class="form-control" id="valor" [(ngModel)]="producto.valor" required /></td>
+            </tr>
+            <tr>
+                <td><label for="descripcion">descripcion</label></td>
+            </tr>
+            <tr>
+                <td>
+                    <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="10"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <label for="imagenes">imagen(es)</label>
+            </tr>
+            <tr>
+                <td><input type="file" class="form-control-file" name="imagenes" (change)="fileProgress($event)" id="imagenes" multiple></td>
+            </tr>
+            <tr>
+                <td><hr></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="form-control" id="enviar" (click)="crearProducto(producto)" value="Crear" required></td>
+            </tr>
+        </table>
+    </form>
+</div>

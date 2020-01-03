@@ -1,0 +1,21 @@
+Usuarios (privada) ------------------------------------
+Registro/Login/Logout para tener acceso al API restringido (publica) ------------------------------------
+CRUD Restful de usuarios (listado, añadir, ver, modificar y borrar) ------------------------------------
+Activar o desactivar un usuario en base a su ID
+Consultar usuarios activos o no 
+Publicaciones (privado) ------------------------------------
+Cargar la página principal y el menú principal públicos y privados ------------------------------------
+Listar u ver publicaciones publicadas públicas (publico)
+Crud RestFull de Publicaciones (listado, añadir, ver, modificar y borrar)
+Consultar los tipos de publicación disponibles (guardar los campos mínimos: PN)
+CRUD publicaciones por tipo de publicación (listado, añadir, ver, modificar y borrar)
+Modificar si una publicación está pública o no
+Modificar si una publicación está publicada o no
+Consultar la publicación principal de cada tipo
+Notas generales. para cuando el backend esté hecho:
+
+Nota el api a consultar será el realizado con el ejercicio de Backend
+Excepto el login y el registro de usuarios todo lo demás debe accederse mediante token, por lo que lo primero que deberíamos ver la primera vez que entramos en la app es registro y/o login
+También deberíamos poder ver la parte pública de la web
+Sólo deberíamos poder acceder al contenido privado mediante el token
+Deberemos realizar las pruebas de funcionamiento de la app de manera automatizada

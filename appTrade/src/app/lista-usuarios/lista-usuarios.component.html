@@ -1,0 +1,63 @@
+<h2>Administradores</h2>
+<hr>
+
+<table>
+    <tr>
+        <td>Filtros:</td>
+        <td></td>
+    </tr>
+</table>
+<hr>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">email</th>
+        <th scope="col">rol</th>
+        <th scope="col">activo</th>
+        <th scope="col">borrar</th>
+        <th scope="col">editar</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let usuarioAdmin of usuariosAdmin">
+      <tr>
+        <th scope="row">{{usuarioAdmin.id}}</th> <!-- ID -->
+        <td>{{usuarioAdmin.username}}</td>
+        <td>{{usuarioAdmin.email}}</td>
+        <td>{{usuarioAdmin.rol}}</td>
+        <td>{{usuarioAdmin.active}}</td>
+        <td><input type="button" class="btn btn-primary" (click)="borrarUsuario(usuarioAdmin)" value="Borrar"></td>
+        <td><input type="button" class="btn btn-primary" (click)="editarUsuario(usuarioAdmin)" value="Editar"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+  <h2>Comunes</h2>
+  <hr>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">email</th>
+        <th scope="col">rol</th>
+        <th scope="col">active</th>
+        <th scope="col">borrar</th>
+        <th scope="col">editar</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let usuarioCommon of usuariosCommon">
+      <tr>
+        <th scope="row">{{usuarioCommon.id}}</th> <!-- ID -->
+        <td>{{usuarioCommon.username}}</td>
+        <td>{{usuarioCommon.email}}</td>
+        <td>{{usuarioCommon.rol}}</td>
+        <td>{{usuarioCommon.active}}</td>
+        <td><input type="button" class="btn btn-primary" (click)="borrarUsuario(usuarioCommon) " value="Borrar"></td>
+        <td><input type="button" class="btn btn-primary" (click)="editarUsuario(usuarioCommon)"  value="Editar"></td>
+      </tr>
+    </tbody>
+  </table>
+
