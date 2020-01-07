@@ -29,9 +29,12 @@ export class InicioSesionComponent implements OnInit {
       
       localStorage.setItem("usuario", datos.dataUser.username);
       localStorage.setItem("usuarioRole", datos.dataUser.rol);
+      this.router.navigateByUrl("productos");
+      /*
       this.router.navigateByUrl("productos").then((d)=>{
         window.location.reload();
       });
+      */
     });
     
   }

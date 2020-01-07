@@ -55,7 +55,10 @@ export class ProductosComponent implements OnInit {
   borrarProducto(producto: Producto):void{
     
     this.productosService.borrarProducto(producto).subscribe((datos)=>{
-      window.location.reload();
+      this.productosService.getProductos().subscribe((datos) =>{
+        this.listaProductos = datos;
+        console.log(this.listaProductos);
+      });
     });
     
      
