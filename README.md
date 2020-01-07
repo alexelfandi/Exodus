@@ -4,7 +4,11 @@
 
 Proyecto para gestamp hecho en angular.
 
-## Iniciar angular desde /appTrade
+## Si no tienes la carpeta modules, desde /servidor y /apptrade
+
+- npm install
+
+## Iniciar angular desde /frontend/appTrade
 
 - ng serve
 
@@ -13,9 +17,7 @@ Proyecto para gestamp hecho en angular.
 
 - npm run start
 
-## Si no tienes la carpeta modules, desde /servidor y /apptrade
 
-- npm install
 
 ## en visual code ( terminal ) si no se puede hacer un ng serve por permisos de script. Desde powershell
 
