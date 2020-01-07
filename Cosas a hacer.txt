@@ -1,0 +1,2 @@
+1- reestructuracion de carpetas ( esto conlleva a reestructurar todos los imports )
+2- windows loaded ( para que no refresque la pagina )
