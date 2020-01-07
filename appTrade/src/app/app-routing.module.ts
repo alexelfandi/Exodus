@@ -15,6 +15,7 @@ import { CrearProductoComponent } from './crear-producto/crear-producto.componen
 
 
 const routes: Routes = [
+  { path: "", component: InicioComponent },
   {path: "inicio", component: InicioComponent},
   {path: "productos", component: ProductosComponent, /* canActivate : [AutenticacionGuard] */},
   {path: "contacto", component: ContactoComponent, /* canActivate : [AutenticacionGuard] */},

@@ -182,16 +182,3 @@ app.get("/listaUsuarios", (req, res) => {
 
 });
 
-
-/*
-loginUser = (req, res, next) => {
-    const userData = {
-        username: req.body.username,
-        password: req.body.password,
-    }
-    // si se encuentra el colega se hace esto
-    const resultPassword = userData.password;
-    const accessToken = jwt.sign({ id: user.id }, SECRET_KEY, { expiresIn: expiresIn });
-    res.send({ userData });
-}
-*/
