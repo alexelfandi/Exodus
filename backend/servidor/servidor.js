@@ -16,6 +16,30 @@ const firebase = require("firebase");
 // Required for side-effects
 require("firebase/functions");
 
+
+// Moongose ----------------------
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test');
+//Get the default connection
+var db = mongoose.connection;
+//Bind connection to error event (to get notification of
+//connection errors)
+db.on('error', console.error.bind(console, 'MongoDBconnection error:'));
+var Schema = mongoose.Schema; 
+
+var newSchema = new Schema({
+    id:  { type: Number, required: true },
+    name: { type: String, required: true },
+    
+
+});
+
+
+
+
+// Moongose -----------------------
+
 var admin = require("firebase-admin");
 /*
 var serviceAccount = require("path/to/serviceAccountKey.json");
