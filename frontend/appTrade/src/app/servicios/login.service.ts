@@ -19,4 +19,17 @@ export class LoginService {
   public register(usuario: Cuenta){
     return this.http.post<Cuenta>("http://localhost:3000/register", usuario);
   }
+
+  public isLogged(): boolean{
+    let token=localStorage.getItem("ACCESS_TOKEN");
+    
+    if (token == null || token == "") {
+      return  false;
+      
+    } else{
+      
+      return  true;
+
+    }
+  }
 }

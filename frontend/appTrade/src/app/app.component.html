@@ -17,19 +17,19 @@
       <!-- Links -->
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a href="inicio" class="nav-link">Inicio
+          <a [routerLink]="['/inicio']" class="nav-link">Inicio
             <span class="sr-only">(current)</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="productos">Productos</a>
+          <a class="nav-link" [routerLink]="['/productos']">Productos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contacto">Contacto</a>
+          <a class="nav-link" [routerLink]="['/contacto']">Contacto</a>
         </li>
         <ng-template [ngIf]="esAdmin">
           <li>
-            <a class="nav-link" href="listaUsuarios">Usuarios</a>
+            <a class="nav-link" [routerLink]="['/listaUsuarios']">Usuarios</a>
           </li>
         </ng-template>
 
@@ -50,8 +50,8 @@
       <form class="form-inline">
         <div class="md-form my-0">
             <div *ngIf="!logeado" class="sinlogearDiv">
-                <a class="nav-link" href="inicioSesion">Iniciar sesion</a>
-                <a class="nav-link" href="registro">Registrarse</a>
+                <a class="nav-link" [routerLink]="['/inicioSesion']">Iniciar sesion</a>
+                <a class="nav-link" [routerLink]="['/registro']">Registrarse</a>
             </div>
             <div *ngIf="logeado" class="logeadoDiv">
                 <p style="color: white;">bienvenido {{nombreUsuario}}</p> 
@@ -72,16 +72,16 @@
       <hr class="sidebar-line">
     </ng-template>
     <ng-template [ngIf]="!esAdmin">
-      <a href="inicioSesion">iniciar sesion</a>
+      <a [routerLink]="['/inicioSesion']">iniciar sesion</a>
       <hr class="sidebar-line">
     </ng-template>
 
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <a href="inicio">Inicio</a>
-    <a href="productos">Productos</a>
-    <a href="contacto">Contacto</a>
+    <a [routerLink]="['/inicio']">Inicio</a>
+    <a [routerLink]="['/productos']">Productos</a>
+    <a [routerLink]="['/contacto']">Contacto</a>
     <ng-template [ngIf]="esAdmin">
-        <a class="nav-link" href="listaUsuarios">Usuarios</a>
+        <a class="nav-link" [routerLink]="['/listaUsuarios']">Usuarios</a>
     </ng-template>
   </div>
   

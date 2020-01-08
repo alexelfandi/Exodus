@@ -15,7 +15,7 @@ export class InicioSesionComponent implements OnInit {
 
   usuario:Cuenta = new Cuenta();
 
-  constructor(private AuthService: AuthService, private loginService: LoginService, private router: Router, private jwtToken: JwtTokenService) { }
+  constructor(private AuthService: AuthService, private loginService: LoginService, private router: Router, private jwtToken: JwtTokenService, authService: AuthService) { }
 
   ngOnInit() {
     let token = localStorage.getItem("ACCESS_TOKEN");
@@ -29,12 +29,10 @@ export class InicioSesionComponent implements OnInit {
       
       localStorage.setItem("usuario", datos.dataUser.username);
       localStorage.setItem("usuarioRole", datos.dataUser.rol);
-      this.router.navigateByUrl("productos");
-      /*
+      
       this.router.navigateByUrl("productos").then((d)=>{
         window.location.reload();
       });
-      */
     });
     
   }
@@ -45,10 +43,6 @@ export class InicioSesionComponent implements OnInit {
       
       this.jwtToken.token = datos.token;
       console.log("username puesto en local store");
-      window.location.reload();
-      
-      
-      
       // this.router.navigateByUrl("/productos");
       
     });

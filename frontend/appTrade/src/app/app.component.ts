@@ -28,6 +28,10 @@ export class AppComponent implements OnInit {
   
   logout(){
     this.authService.logout();
+    this.logeado = this.authService.isLogged();
+    if (this.logeado) {
+      this.nombreUsuario = localStorage.getItem("usuario");
+    }
   }
   perfil(){
     console.log("hola");
