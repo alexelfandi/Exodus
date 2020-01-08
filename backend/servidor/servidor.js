@@ -22,7 +22,7 @@ require("firebase/functions");
 
 // Routes
 var usuariosRoutes = require("./routes/userRoutes");
-app.use("/userRoutes", usuariosRoutes);
+app.use("/", usuariosRoutes);
 // Routes
 
 /*
@@ -124,50 +124,6 @@ app.post(`/borrarProducto`, (req, res) => {
 
 });
 
-app.post('/login', (req, res) => {
-
-    for (const key in listaUsuarios) {
-        console.log(listaUsuarios[key].active);
-
-        if (listaUsuarios[key].username == req.body.username) {
-            // nombre de usuario encontrado
-            console.log("usuario encontrado", listaUsuarios[key].username, "=", req.body.username);
-
-            // usuario activo
-            if (listaUsuarios[key].password == req.body.password) {
-                // contraseña encontrada
-                if (listaUsuarios[key].active == true) {
-                    
-                    console.log("usuario Encontrado");
-                    const expiresIn = 24 * 60 * 60;
-                    const accessToken = jwt.sign({ id: listaUsuarios[key].id },
-                        SECRET_KEY, {
-                        expiresIn: expiresIn
-                    });
-                    const dataUser = {
-                        username: req.body.username,
-                        email: req.body.email,
-                        accessToken: accessToken,
-                        expiresIn: expiresIn,
-                        rol: listaUsuarios[key].rol
-                    }
-    
-                    res.cookie("SESSIONID", accessToken, { httpOnly: true, secure: true });
-                    res.status(203).send({ dataUser });
-                    
-                    break;
-                } else {
-                    res.status(409).send("usuario no activo");
-                }
-            } else {
-                res.status(409).send("contraseña incorrecta");
-            }
-        }
-    }
-    res.status(409).send("usuario no encontrado");
-
-
-});
 
 
 router.get('/', (req, res) => {

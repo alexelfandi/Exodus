@@ -1,8 +1,20 @@
 const express = require("express");
-const app = express();
 const router = express.Router();
+const app = express();
+const jwt = require('jsonwebtoken');
+const expressjwt = require('express-jwt');
+app.use(expressjwt({ secret: 'superclave' }).unless({ path: ['/login', '/', '/register'] }));
+const SECRET_KEY = "superclave";
+var token;
 
-app.post('/login', (req, res) => {
+let listaUsuarios = [];
+listaUsuarios.push({ "id": 0, "username": "alex", "email": "alex@gmail.com", "password": "123abc", "rol": "admin", "active": true });
+listaUsuarios.push({ "id": 1, "username": "aitor", "email": "aitor@gmail.com", "password": "aitor", "rol": "common", "active": true });
+listaUsuarios.push({ "id": 2, "username": "admin", "email": "alexelfandi60@gmail.com", "password": "admin", "rol": "admin", "active": true });
+
+
+
+router.post('/login', (req, res) => {
 
     for (const key in listaUsuarios) {
         console.log(listaUsuarios[key].active);
@@ -47,6 +59,36 @@ app.post('/login', (req, res) => {
 
 });
 
+
+app.post('/register', (req, res) => {
+
+
+    const expiresIn = 24 * 60 * 60;
+    const accessToken = jwt.sign({ id: req.body.id },
+        SECRET_KEY, {
+        expiresIn: expiresIn
+    });
+
+    const datauser = {
+        username: req.body.username,
+        email: req.body.email,
+        accessToken: accessToken,
+        expiresIn: expiresIn,
+        rol: req.body.rol
+    }
+
+    const user = {
+        username: req.body.username,
+        email: req.body.email,
+        rol: req.body.rol,
+        password: req.body.password
+    }
+
+    listaUsuarios.push(user);
+
+    res.send(datauser);
+});
+
 let listaProductos = [];
 listaProductos.push({ "id": 0, "nombre": "Cazo", "imagenes": ["../../assets/imagenes/1.png"], "descripcion": "Un cazo muy bonito", "valor": 280 });
 listaProductos.push({ "id": 1, "nombre": "Lampara", "imagenes": [], "descripcion": "Un Lampara muy bonito", "valor": 280 });
@@ -56,7 +98,7 @@ listaProductos.push({ "id": 4, "nombre": "Oro", "imagenes": [], "descripcion": "
 listaProductos.push({ "id": 5, "nombre": "Plata", "imagenes": [], "descripcion": "Un Plata muy bonito", "valor": 280 });
 listaProductos.push({ "id": 5, "nombre": "Plata", "imagenes": [], "descripcion": "Un Plata muy bonito", "valor": 280 });
 
-app.get(`/lista`, (req, res) => {
+router.get(`/lista`, (req, res) => {
     res.send(listaProductos);
 });
 
