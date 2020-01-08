@@ -89,17 +89,28 @@ app.post('/register', (req, res) => {
     res.send(datauser);
 });
 
-let listaProductos = [];
-listaProductos.push({ "id": 0, "nombre": "Cazo", "imagenes": ["../../assets/imagenes/1.png"], "descripcion": "Un cazo muy bonito", "valor": 280 });
-listaProductos.push({ "id": 1, "nombre": "Lampara", "imagenes": [], "descripcion": "Un Lampara muy bonito", "valor": 280 });
-listaProductos.push({ "id": 2, "nombre": "Muñeca", "imagenes": [], "descripcion": "Un Muñeca muy bonito", "valor": 280 });
-listaProductos.push({ "id": 3, "nombre": "Paco", "imagenes": [], "descripcion": "Un Paco muy bonito", "valor": 280 });
-listaProductos.push({ "id": 4, "nombre": "Oro", "imagenes": [], "descripcion": "Un Oro muy bonito", "valor": 280 });
-listaProductos.push({ "id": 5, "nombre": "Plata", "imagenes": [], "descripcion": "Un Plata muy bonito", "valor": 280 });
-listaProductos.push({ "id": 5, "nombre": "Plata", "imagenes": [], "descripcion": "Un Plata muy bonito", "valor": 280 });
+router.post(`/getUsuarioById`, (req, res) => {
+    usuario = listaUsuarios.find(e => e.id == req.body)
+    res.send(usuario);
+});
 
-router.get(`/lista`, (req, res) => {
-    res.send(listaProductos);
+router.post(`/editarUsuario`, (req, res) => {
+
+    let idUsuario = req.body.id;
+    let indiceUsuarioEnLista = listaUsuarios.findIndex((e) => e.id == idUsuario);
+
+
+    listaUsuarios[indiceUsuarioEnLista] = req.body;
+
+    console.log(listaUsuarios[indiceUsuarioEnLista]);
+    res.send(listaUsuarios[indiceUsuarioEnLista]);
+});
+
+app.get("/listaUsuarios", (req, res) => {
+
+
+    res.send(listaUsuarios);
+
 });
 
 module.exports = router;
