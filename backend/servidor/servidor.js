@@ -1,3 +1,4 @@
+
 const express = require("express");
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
@@ -17,8 +18,16 @@ const firebase = require("firebase");
 require("firebase/functions");
 
 
-// Moongose ----------------------
 
+
+// Routes
+var usuariosRoutes = require("./routes/userRoutes");
+app.use("/userRoutes", usuariosRoutes);
+// Routes
+
+/*
+
+// Moongose ----------------------
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
 //Get the default connection
@@ -39,7 +48,7 @@ var newSchema = new Schema({
 
 
 // Moongose -----------------------
-
+*/
 var admin = require("firebase-admin");
 /*
 var serviceAccount = require("path/to/serviceAccountKey.json");
@@ -85,9 +94,7 @@ const router = express.Router();
 app.listen(3000, () => {
     console.log("El servidor está inicializado en el puerto 3000");
 });
-app.get(`/lista`, (req, res) => {
-    res.send(listaProductos);
-});
+
 app.post(`/getUsuarioById`, (req, res) => {
     usuario = listaUsuarios.find(e => e.id == req.body)
     res.send(usuario);
@@ -115,44 +122,7 @@ app.post(`/borrarProducto`, (req, res) => {
 
 
 
-})
-router.get('/', (req, res) => {
-    res.send("hello from home");
 });
-
-app.post('/register', (req, res) => {
-
-
-    const expiresIn = 24 * 60 * 60;
-    const accessToken = jwt.sign({ id: req.body.id },
-        SECRET_KEY, {
-        expiresIn: expiresIn
-    });
-
-    const datauser = {
-        username: req.body.username,
-        email: req.body.email,
-        accessToken: accessToken,
-        expiresIn: expiresIn,
-        rol: req.body.rol
-    }
-
-    const user = {
-        username: req.body.username,
-        email: req.body.email,
-        rol: req.body.rol,
-        password: req.body.password
-    }
-
-    listaUsuarios.push(user);
-
-    res.send(datauser);
-});
-
-const checkIfAuthenticated = expressjwt({
-    secret: SECRET_KEY
-});
-
 
 app.post('/login', (req, res) => {
 
@@ -198,6 +168,47 @@ app.post('/login', (req, res) => {
 
 
 });
+
+
+router.get('/', (req, res) => {
+    res.send("hello from home");
+});
+
+app.post('/register', (req, res) => {
+
+
+    const expiresIn = 24 * 60 * 60;
+    const accessToken = jwt.sign({ id: req.body.id },
+        SECRET_KEY, {
+        expiresIn: expiresIn
+    });
+
+    const datauser = {
+        username: req.body.username,
+        email: req.body.email,
+        accessToken: accessToken,
+        expiresIn: expiresIn,
+        rol: req.body.rol
+    }
+
+    const user = {
+        username: req.body.username,
+        email: req.body.email,
+        rol: req.body.rol,
+        password: req.body.password
+    }
+
+    listaUsuarios.push(user);
+
+    res.send(datauser);
+});
+
+const checkIfAuthenticated = expressjwt({
+    secret: SECRET_KEY
+});
+
+
+
 
 app.get("/listaUsuarios", (req, res) => {
 
