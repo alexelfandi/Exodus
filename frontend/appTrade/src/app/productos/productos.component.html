@@ -1,7 +1,22 @@
 <h2>Productos</h2>
 <hr>
-<div class="contenedor-cartas d-flex flex-wrap">
 
+<div class="filtradoDivPadre">
+	<div class="filtradoDiv">
+		<hr>
+		<div class="filtradoDivHijo">
+			<button class="btn btn-primary">Crear</button>
+			<hr class="hrs">
+			<div class="filtroUno">
+				<label for="filtro">Filtrado ( nombre ) </label>
+				<input type="text" class="form-control" name="filtro" id="filtro" [(ngModel)]="filtrado" (keyup)="onKeydown($event)">
+			</div>
+		</div >
+		<hr>
+	</div>
+</div>
+
+<div class="contenedor-cartas d-flex flex-wrap">
 	<div class="cartas" *ngFor="let producto of listaProductos" >
 	
 		<div class="card " style="width: 18rem;">

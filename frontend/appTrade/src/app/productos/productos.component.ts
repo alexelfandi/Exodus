@@ -6,7 +6,7 @@ import { LoginService } from '../servicios/login.service';
 import { JwtTokenService } from '../servicios/jwt-token.service';
 import { AuthService } from '../servicios/auth.service';
 import { Imagen } from '../dominio/imagen';
-import { NgbSlideEvent, NgbSlideEventSource,NgbCarousel  } from '@ng-bootstrap/ng-bootstrap';
+import { NgbSlideEvent, NgbSlideEventSource, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-productos',
@@ -17,8 +17,10 @@ export class ProductosComponent implements OnInit {
 
   esAdmin: boolean = false;
 
-  public listaProductos: Producto[]=[];
+  public listaProductos: Producto[] = [];
 
+  filtrado: string = "";
+  filtroLista = [];
   images: string[] = [
     "../../assets/imagenes/1.png",
     "../../assets/imagenes/2.jpg",
@@ -28,40 +30,69 @@ export class ProductosComponent implements OnInit {
   showNavigationArrows = true;
   showNavigationIndicators = true;
   pauseOnHover = true;
- 
-  @ViewChild('mycarousel', {static : true}) carousel: NgbCarousel;
+
+  @ViewChild('mycarousel', { static: true }) carousel: NgbCarousel;
+
 
   constructor(private router: Router, private productosService: ProductosService, private loginService: LoginService, private jwtToken: JwtTokenService, private authService: AuthService) {
 
   }
 
   ngOnInit() {
-   
+
     this.loginService.login(this.jwtToken.usuario);
 
-    this.productosService.getProductos().subscribe((datos) =>{
+    this.productosService.getProductos().subscribe((datos) => {
       this.listaProductos = datos;
       console.log(this.listaProductos);
     });
 
     this.esAdmin = this.authService.checkRole();
-    
+
   }
 
-  irADetalles(id: number): void{
+  irADetalles(id: number): void {
     this.router.navigateByUrl(`/productoDetalles/${id}`);
   }
 
-  borrarProducto(producto: Producto):void{
-    
-    this.productosService.borrarProducto(producto).subscribe((datos)=>{
-      this.productosService.getProductos().subscribe((datos) =>{
+  borrarProducto(producto: Producto): void {
+
+    this.productosService.borrarProducto(producto).subscribe((datos) => {
+      this.productosService.getProductos().subscribe((datos) => {
         this.listaProductos = datos;
         console.log(this.listaProductos);
       });
     });
+
+
+  }
+
+  onKeydown(event) {
     
-     
+
+    
+    if (this.filtrado == "") {
+      this.productosService.getProductos().subscribe((datos) => {
+        console.log("Vacio");
+        this.listaProductos = datos;
+      });
+
+    }else {
+      console.log("filtrando");
+      
+      // Filtra y devuelve un array con un solo elemento dentro
+      this.productosService.getProductos().subscribe((datos) => {
+        this.listaProductos = datos;
+        this.listaProductos = this.listaProductos.filter((p)=>p.nombre == this.filtrado);
+      });
+      
+      
+
+
+
+    }
+
+
   }
 
   // todo lo del carousel
@@ -77,19 +108,19 @@ export class ProductosComponent implements OnInit {
   startCarousel() {
     this.carousel.cycle();
   }
- 
+
   pauseCarousel() {
     this.carousel.pause();
   }
- 
+
   moveNext() {
     this.carousel.next();
   }
- 
+
   getPrev() {
     this.carousel.prev();
   }
- 
+
   goToSlide(slide) {
     this.carousel.select(slide);
   }
