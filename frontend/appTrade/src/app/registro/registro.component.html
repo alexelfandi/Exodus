@@ -34,7 +34,7 @@
                 <td><input type="button" class="form-control" id="enviar" (click)="register(usuario)" value="Registrar"></td>
             </tr>
             <tr>
-                <td>ya tienes cuenta? <a href="nav-link" href="inicioSesion">inicia sesion</a></td>
+                <td>ya tienes cuenta? <a [routerLink]="['/inicioSesion']">inicia sesion</a></td>
             </tr>
         </table>
     </form>

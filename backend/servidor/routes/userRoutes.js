@@ -60,7 +60,7 @@ router.post('/login', (req, res) => {
 });
 
 
-app.post('/register', (req, res) => {
+router.post('/register', (req, res) => {
 
 
     const expiresIn = 24 * 60 * 60;
@@ -81,7 +81,8 @@ app.post('/register', (req, res) => {
         username: req.body.username,
         email: req.body.email,
         rol: req.body.rol,
-        password: req.body.password
+        password: req.body.password,
+        active: true
     }
 
     listaUsuarios.push(user);
@@ -106,7 +107,7 @@ router.post(`/editarUsuario`, (req, res) => {
     res.send(listaUsuarios[indiceUsuarioEnLista]);
 });
 
-app.get("/listaUsuarios", (req, res) => {
+router.get("/listaUsuarios", (req, res) => {
 
 
     res.send(listaUsuarios);
