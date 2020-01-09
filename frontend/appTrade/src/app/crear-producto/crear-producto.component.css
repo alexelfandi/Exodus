@@ -3,9 +3,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 30px;
     height: 400px;
+    margin-top: 200px;
+    margin-bottom: 200px;
 }
 .contenedorInicioSesion form {
     width: 50%;
@@ -21,8 +21,4 @@ h2 {
 }
 .contenedorInicioSesion table td {
     margin-top: 200px;
-}
-.formulario-creacion {
-    margin-top: 20px;
-    margin-bottom: 20px;
 }

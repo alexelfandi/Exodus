@@ -51,6 +51,12 @@ export class ProductosComponent implements OnInit {
 
   }
 
+  crearProducto(nuevoproducto :Producto):void {
+    this.productosService.crearProducto(nuevoproducto).subscribe((datos)=>{
+      this.router.navigateByUrl("lista");
+    })
+  }
+
   irADetalles(id: number): void {
     this.router.navigateByUrl(`/productoDetalles/${id}`);
   }
