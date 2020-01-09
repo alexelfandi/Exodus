@@ -14,7 +14,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { JwtTokenService } from './servicios/jwt-token.service';
-import { AuthComponentComponent } from './auth-component/auth-component.component';
 import { AuthService } from './servicios/auth.service';
 import { AuthInterceptor } from './auth-interceptor';
 import { LogoutComponent } from './logout/logout.component';
@@ -44,7 +43,6 @@ export function jwtOptionsFactory(tokenService: JwtTokenService) {
     ProductoDetallesComponent,
     RegistroComponent,
     InicioSesionComponent,
-    AuthComponentComponent,
     LogoutComponent,
     ListaUsuariosComponent,
     EdicionUsuariosComponent,
