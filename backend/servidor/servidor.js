@@ -14,12 +14,12 @@ const firebase = require("firebase");
 require("firebase/functions");
 
 
-// Routes
+// Routes ----------------------------------------------------------
 var usuariosRoutes = require("./routes/userRoutes");
 app.use("/", usuariosRoutes);
 var productosRouter = require("./routes/productosRoutes")
 app.use("/", productosRouter);
-// Routes
+// Routes ----------------------------------------------------------
 
 
 var admin = require("firebase-admin");
