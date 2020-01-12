@@ -12,34 +12,16 @@ export class CrearProductoComponent implements OnInit {
 
   producto: Producto = new Producto();
 
-  files: File[];
-
+  public listaProductos: Producto[] = [];
   constructor(public servicio:ProductosService, private router:Router) { }
 
   ngOnInit() {
   }
 
-
   crearProducto(nuevoproducto :Producto):void {
     this.servicio.crearProducto(nuevoproducto).subscribe((datos)=>{
-      this.router.navigateByUrl("lista");
+      console.log(nuevoproducto);
+      
     })
   }
-
-  fileProgress(event){
-  
-    this.files = [];
-
-    for (const key in event.target.files) {
-      
-      this.files.push(event.target.files[key]);
-      console.log(event.target.files[key]);
-
-    }
-    
-    
-    
-    
-  }
-
 }

@@ -16,6 +16,10 @@ router.get(`/lista`, (req, res) => {
     res.send(listaProductos);
 });
 
+router.post(`/crearProducto`, (req,res)=>{
+    listaProductos.push(req.body);
+    res.send(listaProductos);
+})
 
 router.post(`/borrarProducto`, (req, res) => {
 

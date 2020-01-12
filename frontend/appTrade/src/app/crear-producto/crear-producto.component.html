@@ -19,7 +19,7 @@
             </tr>
             <tr>
                 <td>
-                    <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="10"></textarea>
+                    <textarea class="form-control" name="descripcion" id="descripcion" [(ngModel)]="producto.descripcion" cols="30" rows="10"></textarea>
                 </td>
             </tr>
             <tr>
@@ -34,7 +34,7 @@
                 <td><hr></td>
             </tr>
             <tr>
-                <td><input type="button" class="form-control" id="enviar" (click)="crearProducto(producto)" value="Crear" required></td>*/
+                <td><input type="button" class="form-control" id="enviar" (click)="crearProducto(producto)" [routerLink]="['/productos']" value="Crear" required></td>
             </tr>
         </table>
     </form>
