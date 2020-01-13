@@ -13,9 +13,14 @@ listaProductos.push({ "id": 5, "nombre": "Plata", "imagenes": [], "descripcion":
 listaProductos.push({ "id": 5, "nombre": "Plata", "imagenes": [], "descripcion": "Un Plata muy bonito", "valor": 280 });
 
 router.get(`/lista`, (req, res) => {
+    res.writeHead(200,{'content-Type':'text/plain'});//No estoy seguro...Alvaro
     res.send(listaProductos);
 });
 
+router.post(`/crearProducto`, (req,res)=>{
+    listaProductos.push(req.body);
+    res.send(listaProductos);
+})
 
 router.post(`/borrarProducto`, (req, res) => {
 

@@ -1,5 +1,7 @@
+import { ProductosService } from './../servicios/productos.service';
 import { Component, OnInit } from '@angular/core';
 import { Producto } from '../dominio/producto';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-producto',
@@ -10,33 +12,16 @@ export class CrearProductoComponent implements OnInit {
 
   producto: Producto = new Producto();
 
-  files: File[];
-
-  constructor() { }
+  public listaProductos: Producto[] = [];
+  constructor(public servicio:ProductosService, private router:Router) { }
 
   ngOnInit() {
   }
 
-
-  crearProducto(producto: Producto){
-    console.log(producto);
-    
-  }
-
-  fileProgress(event){
-  
-    this.files = [];
-
-    for (const key in event.target.files) {
+  crearProducto(nuevoproducto :Producto):void {
+    this.servicio.crearProducto(nuevoproducto).subscribe((datos)=>{
+      console.log(nuevoproducto);
       
-      this.files.push(event.target.files[key]);
-      console.log(event.target.files[key]);
-
-    }
-    
-    
-    
-    
+    })
   }
-
 }

@@ -22,4 +22,7 @@ export class ProductosService {
   public borrarProducto(producto: Producto): Observable<Producto>{
     return this.http.post<Producto>("http://localhost:3000/borrarProducto", producto);
   }
+  public crearProducto(nuevoProducto:Producto): Observable<Producto>{
+    return this.http.post<Producto>("http://localhost:3000/crearProducto", nuevoProducto)
+  }
 }
