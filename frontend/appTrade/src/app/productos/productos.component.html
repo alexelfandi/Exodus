@@ -1,4 +1,4 @@
-<h2>Productos</h2>
+<h2 class="tituloPagina">Productos</h2>
 <hr>
 
 <div class="filtradoDivPadre">
@@ -8,17 +8,17 @@
 			<button class="btn btn-primary"  [routerLink]="['/crearProducto']">Crear</button>
 			<hr class="hrs">
 			<div class="filtroUno">
-				<label for="filtro">Filtrado ( nombre ) </label>
-				<input type="text" class="form-control" name="filtro" id="filtro" [(ngModel)]="filtrado" (keyup)="onKeydown($event)">
+				<label for="filtro">Filtrado</label>
+				<input type="text" placeholder="ejemplo: Cazo" class="form-control" name="filtro" id="filtro" [(ngModel)]="filtrado" (keyup)="onKeydown($event)">
 			</div>
 		</div >
 		<hr>
 	</div>
 </div>
 
-<div class="contenedor-cartas d-flex flex-wrap" >
+<div class="contenedor-cartas" >
 		<div class="cartas"  >
-			<div class="card " style="width: 18rem;" *ngFor="let producto of listaProductos">
+			<div class="card" *ngFor="let producto of listaProductos">
 				<img src="{{images[0]}}" class="card-img-top" alt="...">
 				<div class="card-body">
 					<h5 class="card-title">{{producto.nombre}}</h5>
