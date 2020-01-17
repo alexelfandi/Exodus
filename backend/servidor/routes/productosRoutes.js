@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+app = express();
 
 let listaProductos = [];
 listaProductos.push({ "id": 0, "nombre": "Cazo", "imagenes": ["../../assets/imagenes/1.png"], "descripcion": "Un cazo muy bonito", "valor": 280 });
@@ -13,7 +13,6 @@ listaProductos.push({ "id": 5, "nombre": "Plata", "imagenes": [], "descripcion":
 listaProductos.push({ "id": 5, "nombre": "Plata", "imagenes": [], "descripcion": "Un Plata muy bonito", "valor": 280 });
 
 router.get(`/lista`, (req, res) => {
-    // res.writeHead(203);//No estoy seguro...Alvaro
     res.send(listaProductos);
 });
 
@@ -31,5 +30,30 @@ router.post(`/borrarProducto`, (req, res) => {
     res.status(204).send("hecho");
 
 });
+
+app.put('/producto/:id', function(req, res){
+  
+    //Selecciona el elemento especifico
+    let selecciono = lista.filter(function(dato){
+      return dato.id == req.params.id;
+    })[0];
+  
+    let indice = lista.indexOf(selecciono);
+    lista[indice] = req.body;
+  
+    //Esto permite asignarle el resultado a la pantalla
+    this.selecciono = req.body;
+  
+    //Pinto por pantalla el resultado
+    res.status(200).send();
+  
+  });
+
+  app.get("/producto/:id",function(req,res){
+    let listaFiltrada = lista.filter(function(elemento){
+      return elemento.id == req.params.id
+    });
+    res.send(listaFiltrada[0]);
+  })
 
 module.exports = router;
