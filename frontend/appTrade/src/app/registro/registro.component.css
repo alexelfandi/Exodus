@@ -1,5 +1,5 @@
 .contenedorInicioSesion {
-    width: 50%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,18 +21,4 @@ h2 {
 }
 .contenedorInicioSesion table td {
     margin-top: 200px;
-}
-
-.contenedorFormulario {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-/* MEDIA QUERIES ------------------------------------------------------- */
-
-@media screen and (max-width: 900px) {
-    
-
-
 }
