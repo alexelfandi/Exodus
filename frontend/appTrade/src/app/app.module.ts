@@ -22,6 +22,7 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 import { EdicionUsuariosComponent } from './edicion-usuarios/edicion-usuarios.component';
 import { CrearProductoComponent } from './crear-producto/crear-producto.component';
+import { ProductoEditarComponent } from './producto-editar/producto-editar.component';
 
 export function jwtOptionsFactory(tokenService: JwtTokenService) {
   return {
@@ -47,6 +48,7 @@ export function jwtOptionsFactory(tokenService: JwtTokenService) {
     ListaUsuariosComponent,
     EdicionUsuariosComponent,
     CrearProductoComponent,
+    ProductoEditarComponent,
     
     
   ],
