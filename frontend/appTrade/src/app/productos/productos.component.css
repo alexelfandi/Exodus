@@ -59,9 +59,23 @@
 .carousel img {
     width: 100%;
 }
-
+.contenedor-cartas {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .cartas{
     margin: 10px;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.subContenedor {
+    width: 80%;
+}
+.card {
+    margin-left:60px;
+    margin-top: 50px;
 }
 
 
@@ -100,4 +114,18 @@
     width:          1px;
     margin-left:    20px;
     margin-right:   5px;   
+}
+
+/* Media queries -------------------------------------------------------------------------------------------------- */
+
+@media screen and (max-width: 900px) {
+    .card {
+        width: 40%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .card{
+        width: 100%;
+    }
+    
 }
