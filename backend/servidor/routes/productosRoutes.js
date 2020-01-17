@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+app = express();
 
 let listaProductos = [];
 listaProductos.push({ "id": 0, "nombre": "Cazo", "imagenes": ["../../assets/imagenes/1.png"], "descripcion": "Un cazo muy bonito", "valor": 280 });
