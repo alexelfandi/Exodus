@@ -4,3 +4,27 @@
 #contenedorInfoTitulo {
     margin-bottom: 100px;
 }
+#contenedorInfoTitulo h3 {
+    font-size: 50px;
+}
+.contenedorInfoInformacion * {
+    font-size: 20px;
+    text-align: justify;
+}
+
+/* MEDIA QUERIES -------------------------------------------------------- */
+
+@media screen and (max-width: 900px) {
+    .sectionOne *{
+        font-size: 10vw;
+    }
+    #contenedorInfoTitulo{
+        margin-bottom: 20px;
+    }
+    #contenedorInfo {
+        margin-top:40px;
+    }
+    .contenedorInfoInformacion * {
+        font-size: 20px;
+    }
+}
