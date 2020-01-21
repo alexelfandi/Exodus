@@ -12,6 +12,7 @@ import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.componen
 import { EdicionUsuariosComponent } from './edicion-usuarios/edicion-usuarios.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { CrearProductoComponent } from './crear-producto/crear-producto.component';
+import { ProductoEditarComponent } from './producto-editar/producto-editar.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path: "listaUsuarios", component: ListaUsuariosComponent},
   {path: "edicionUsuario/:id", component: EdicionUsuariosComponent},
   {path: "perfil", component: PerfilComponent},
-  {path: "crearProducto", component: CrearProductoComponent}
+  {path: "crearProducto", component: CrearProductoComponent},
+  {path: "editarProducto", component: ProductoEditarComponent}
 
 
 
