@@ -1,4 +1,4 @@
-import { Controller, UseGuards, Post, Request, Get } from '@nestjs/common';
+import { Controller, UseGuards, Post, Request, Get, Body } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from '../auth/authService/auth.service';
 
@@ -7,9 +7,10 @@ export class UserController {
 
     constructor(private readonly authService: AuthService) {}
 
-    @UseGuards(AuthGuard('local'))
+    //@UseGuards(AuthGuard('local'))
     @Post('auth/login')
-    async login(@Request() req) {
+    async login(@Body() req) {
+      console.log("LLegue");
       return this.authService.login(req.user);
     }
 
