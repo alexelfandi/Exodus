@@ -1,0 +1,39 @@
+.contenedorFormulario {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.contenedorFormularioChild {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+.contenedorFormularioChild form {
+    width:50%;
+}
+.contenedorTitulo h3 {
+    font-size: 4vw;
+    text-align: center;
+}
+
+@media screen and (max-width: 900px){
+    .contenedorFormularioChild form {
+        width:80%;
+    }
+    .contenedorTitulo h3 {
+        font-size: 4vw;
+        
+    }
+}
+@media screen and (max-width: 600px){
+    .contenedorFormularioChild form {
+        width:100%;
+    }
+    .contenedorFormularioChild label {
+        font-size: 10px;
+    }
+    .contenedorTitulo h3 {
+        font-size: 4vw;
+        
+    }
+}
