@@ -29,9 +29,6 @@ const routes: Routes = [
   {path: "perfil", component: PerfilComponent},
   {path: "crearProducto", component: CrearProductoComponent},
   {path: "editarProducto", component: ProductoEditarComponent}
-
-
-
 ];
 
 @NgModule({
