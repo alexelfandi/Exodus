@@ -20,6 +20,9 @@ router.get(`/lista`, (req, res) => {
 router.post(`/crearProducto`, (req,res)=>{
     listaProductos.push(req.body);
     res.send(listaProductos);
+    res.status(204).send('Creado');
+
+    
 })
 
 router.post(`/borrarProducto`, (req, res) => {
