@@ -1,67 +1,82 @@
 #ContenedorTodo {
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
+    padding:        10px;
+    display:        flex;
+    flex-wrap:      wrap;
 }
 .prueba_contenedor{
-    width: 100%;
-    margin: 50px;
+    width:          100%;
+    margin:         50px;
 }
 .productoCajaGrande {
-    border: solid 1px #000000;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-    width: 10%;
-    padding: 10px;
+    border:         solid 1px #000000;
+    margin-bottom:  10px;
+    flex-wrap:      wrap;
+    width:          10%;
+    padding:        10px;
     
 }
 .contenedorImagen {
-    width: 100%;
+    width:          100%;
     
 }
 .contenedorImagen img {
-    width: 50%;
+    width:          50%;
 }
 
 .contenedorTitulo{
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
+    width:          100%;
+    display:        flex;
+    flex-wrap:      nowrap;
 }
 .contenedorTituloTitulo {
-    width: 50%;
+    width:          50%;
 }
 .contenedorTituloPrecio {
-    width: 50%;
-    text-align: right;
+    width:          50%;
+    text-align:     right;
 }
 .contenedorLinea {
-    width: 100%;
+    width:          100%;
 }
 .textoContenedor {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:    Arial, Helvetica, sans-serif;
 }
 .contenedorBoton {
-    display: flex;
-    align-items: center;
+    display:        flex;
+    align-items:    center;
     justify-content: center;
-    width: 100%;
+    width:          100%;
     
 }
 .contenedorBoton button {
-    margin-left: 10px;
+    margin-left:    10px;
 }
 
 .carousel {
-    width: 30%;
-    height: 30%;
+    width:          30%;
+    height:         30%;
 }
 .carousel img {
-    width: 100%;
+    width:          100%;
 }
-
+.contenedor-cartas {
+    width:          100%;
+    display:        flex;
+    justify-content: center;
+}
 .cartas{
-    margin: 10px;
+    margin:         10px;
+    width:          90%;
+    display:        flex;
+    flex-wrap:      wrap;
+}
+.subContenedor {
+    width:          80%;
+}
+.card {
+    width:          20%;
+    margin-left:    40px;
+    margin-top:     40px;
 }
 
 
@@ -100,4 +115,46 @@
     width:          1px;
     margin-left:    20px;
     margin-right:   5px;   
+}
+
+/* Media queries -------------------------------------------------------------------------------------------------- */
+
+@media screen and (max-width: 900px) {
+    .cartas {
+        width: 100%;
+    }
+    .card {
+        width: 40%;
+    }
+    .card * {
+        font-size: 3vw;
+    }
+    .tituloPagina {
+        font-size: 9vw;
+        text-align: center;
+    }
+    .filtradoDivPadre * {
+        font-size: 4vw;
+    }
+    .filtradoDivPadre input {
+        height: 80%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .cartas {
+        width: 100%;
+        padding: 30px;
+    }
+    .card {
+        width: 100%;
+        margin-left: 0;
+    }
+    .card * {
+        font-size: 6vw;
+    }
+    .tituloPagina {
+        font-size: 13vw;
+        text-align: center;
+    }
+    
 }

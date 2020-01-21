@@ -2,7 +2,7 @@
 	
 @import './assets/bootstrap/bootstrap.min.css';
 * {
-    font-family:PassionOne-Bold, Passion One;
+    font-family:passione-bold;
     font-size: 1vw;
 }
 #logoExodusSvg {
@@ -12,5 +12,10 @@
 
 footer {
     background-color: black;
+}
+
+@font-face {
+    font-family: passione-bold;
+    src: url(./assets/fonts/PASSIONONE-BOLD.OTF);
 }
 
