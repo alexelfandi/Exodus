@@ -73,6 +73,13 @@ export class ProductosComponent implements OnInit {
 
   }
 
+  editarProducto(id: number): void {
+
+    this.router.navigateByUrl(`/editarProducto/${id}`);
+    console.log("has entrado");
+
+  }
+
   onKeydown(event) {
     
 

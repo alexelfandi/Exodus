@@ -28,7 +28,10 @@ const routes: Routes = [
   {path: "edicionUsuario/:id", component: EdicionUsuariosComponent},
   {path: "perfil", component: PerfilComponent},
   {path: "crearProducto", component: CrearProductoComponent},
-  {path: "editarProducto", component: ProductoEditarComponent}
+  {path: "editarProducto/:id", component: ProductoEditarComponent}
+
+
+
 ];
 
 @NgModule({
