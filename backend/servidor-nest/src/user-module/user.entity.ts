@@ -9,7 +9,6 @@ export class User {
     clave_activación (hash), grupos de usuarios ['admin','redactor','editor', 'subscriber', 'visitor'],
     API_TOKEN_KEY, versión, fecha_creacion, ultima_fecha_modif*/
     @PrimaryGeneratedColumn()
-    
     id : number
 
     @Column({length:50, unique : true})
