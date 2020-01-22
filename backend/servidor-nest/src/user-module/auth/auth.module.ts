@@ -6,7 +6,8 @@ import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './constants';
 import { UserService } from '../user-service/user.service';
 // import { JwtStrategy } from './jwt.strategy';
-
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from '../user.entity';
 
 @Module({
   imports: [
@@ -15,9 +16,10 @@ import { UserService } from '../user-service/user.service';
     JwtModule.register({
       secret: jwtConstants.secret,
       signOptions: { expiresIn: '300s' },
-    })
+    }),
+    TypeOrmModule.forFeature([User]), 
     ],
-  providers: [AuthService, LocalStrategy, UserService],
+  providers: [AuthService, LocalStrategy, UserService,],
   exports: [AuthService]
 })
 export class AuthModule {}
