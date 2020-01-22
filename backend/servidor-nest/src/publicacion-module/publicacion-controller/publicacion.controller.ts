@@ -17,9 +17,9 @@ export class PublicacionController {
     }
     @Put(':id')
     async update(@Param('id') id: number, @Body() publicacion: Publicacion) {
-      await this.myService.BuscarporId(id);
-      publicacion.id = id;
-      return this.myService.Crear(publicacion);
+      const publicacionnueva = await this.myService.BuscarporId(id);
+      publicacion = publicacionnueva;
+      return this.myService.Actualizar(publicacion);
     }
     @Delete(':id')
     remove(@Param('id') id: number) {

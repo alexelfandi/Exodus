@@ -7,6 +7,9 @@ import { PublicacionModule } from '../publicacion.module';
 
 @Injectable()
 export class PublicacionService {
+
+    Publica : Publicacion;
+
     constructor(
         @InjectRepository(Publicacion)
         private readonly publicacionRepository: Repository<Publicacion>
@@ -32,12 +35,20 @@ export class PublicacionService {
         return this.publicacionRepository.findOne(tipo);
     }
 
-   /* ConsultarPublicado(publicado: boolean, id:number): Promise<Publicacion>{
-         
-         this.publicacionRepository.findOne(id);
-         
+    ConsultarPublicado(publicado: boolean, id:number): Promise<Publicacion>{
         
-    }*/
+        const consulta = this.publicacionRepository.findOne(id);
+
+        if((consulta != undefined)&&(this.Publica.publicado == publicado)){
+
+            return 
+
+        }
+            
+         
+        return null;
+        
+    }
 
     async Eliminar(id: number): Promise<Publicacion>{
         const Objeto = await this.publicacionRepository.findOne(id);
