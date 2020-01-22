@@ -27,9 +27,6 @@ export class InicioSesionComponent implements OnInit {
   }
   login(usuarioNuevo){
 
-    if (this.usuario.username == "" || this.usuario.password) {
-      this.mensajeError = "Los campos no pueden quedar vacios";
-    } else {
       this.AuthService.login(usuarioNuevo).subscribe((datos)=>{
       
         console.log("DATOS", datos);
@@ -53,7 +50,6 @@ export class InicioSesionComponent implements OnInit {
         }
    
       });
-    }
    
     
   }

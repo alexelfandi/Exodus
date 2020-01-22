@@ -89,7 +89,7 @@ export class ProductosComponent implements OnInit {
       // Filtra y devuelve un array con un solo elemento dentro
       this.productosService.getProductos().subscribe((datos) => {
         this.listaProductos = datos;
-        this.listaProductos = this.listaProductos.filter((p)=>p.nombre == this.filtrado);
+        this.listaProductos = this.listaProductos.filter((p)=>p.titulo == this.filtrado);
       });
       
       
