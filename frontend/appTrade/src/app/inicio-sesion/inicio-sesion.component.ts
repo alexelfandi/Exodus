@@ -15,6 +15,8 @@ export class InicioSesionComponent implements OnInit {
 
   usuario:Cuenta = new Cuenta();
 
+  mensajeError: string = "";
+
   constructor(private AuthService: AuthService, private loginService: LoginService, private router: Router, private jwtToken: JwtTokenService, authService: AuthService) { }
 
   ngOnInit() {
@@ -24,16 +26,35 @@ export class InicioSesionComponent implements OnInit {
     
   }
   login(usuarioNuevo){
-    this.AuthService.login(usuarioNuevo).subscribe((datos)=>{
+
+    if (this.usuario.username == "" || this.usuario.password) {
+      this.mensajeError = "Los campos no pueden quedar vacios";
+    } else {
+      this.AuthService.login(usuarioNuevo).subscribe((datos)=>{
       
-      
-      localStorage.setItem("usuario", datos.dataUser.username);
-      localStorage.setItem("usuarioRole", datos.dataUser.rol);
-      
-      this.router.navigateByUrl("productos").then((d)=>{
-        window.location.reload();
+        console.log("DATOS", datos);
+        
+  
+        if (datos == false) {
+  
+          this.mensajeError = "El usuario o la contraseña son incorrectos"
+  
+        } else {
+          console.log("DATOS", datos);
+  
+          this.AuthService.saveToken(datos.access_token, "300s")
+          
+          localStorage.setItem("usuario", datos.username);
+          localStorage.setItem("usuarioRole", datos.role);
+          
+          this.router.navigateByUrl("productos").then((d)=>{
+            window.location.reload();
+          });
+        }
+   
       });
-    });
+    }
+   
     
   }
   validar(usuarioNuevo){

@@ -13,9 +13,17 @@ export class UserController {
 
     //@UseGuards(AuthGuard('local'))
     @Post('auth/login')
-    async login(@Body() req) {
-      console.log("LLegue");
-      return this.authService.login(req.user);
+    async login(@Body() body: User) {
+        
+      if (await this.authService.validateUser(body.username, body.password)) {
+          let user = await this.userService.findByUsername(body.username);
+          console.log(user);
+          return this.authService.login(user);
+      } else {
+          return false;
+      }
+      
+      
     }
 
     @UseGuards(AuthGuard('jwt'))

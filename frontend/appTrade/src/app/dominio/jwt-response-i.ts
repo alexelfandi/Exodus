@@ -4,8 +4,9 @@ export interface JwtResponseI {
         id: number,
         username: string,
         email: string,
-        accessToken: string,
+        access_token: string,
         expiresIn: string,
-        rol: string
+        grupo: string,
+        activo: boolean
     }
 }

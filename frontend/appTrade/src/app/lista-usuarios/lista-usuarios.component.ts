@@ -23,14 +23,14 @@ export class ListaUsuariosComponent implements OnInit {
   getTodosCommon(){
     this.usuariosService.getTodos().subscribe((datos)=>{
       
-      this.usuariosCommon = datos.filter((e => e.rol == "common"));
+      this.usuariosCommon = datos.filter((e => e.grupo == "common"));
       
     });
   }
   getTodosAdmin(){
     this.usuariosService.getTodos().subscribe((datos)=>{
       
-      this.usuariosAdmin = datos.filter((e => e.rol == "admin"));
+      this.usuariosAdmin = datos.filter((e => e.grupo == "admin"));
       
     });
   }
