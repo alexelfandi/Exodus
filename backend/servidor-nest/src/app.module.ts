@@ -5,9 +5,10 @@ import { UserModule } from './user-module/user.module';
 import { PublicacionModule } from './publicacion-module/publicacion.module';
 import { MenuModule } from './menu-module/menu.module';
 import {TypeOrmModule} from '@nestjs/typeorm';
+import { ContactoModule } from './contacto-module/contacto.module';
 
 @Module({
-  imports: [UserModule, PublicacionModule, MenuModule,TypeOrmModule.forRoot()],
+  imports: [UserModule, PublicacionModule, MenuModule,TypeOrmModule.forRoot(), ContactoModule],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -52,12 +52,7 @@ export class UserController {
     @Put(':id')
     async modifyById(@Param()id:number,@Body()user : User):Promise<User>{
         let userEncontrado=await this.userService.findById(id);
-        
-        userEncontrado.username=user.username;
-        userEncontrado.password=user.password;
-        userEncontrado.email=user.email;
-        userEncontrado.grupo=user.grupo;
-        userEncontrado.avatar=user.avatar;
+        userEncontrado=user;
         return this.userService.save(userEncontrado);
     }
 
