@@ -26,17 +26,7 @@ export class MenuController {
     @Put(':id')
     async modifyById(@Param()id:number,@Body()menu : Menu):Promise<Menu>{
         let menuEncontrado=await this.menuService.findById(id);
-        
-        menuEncontrado.titulo=menu.titulo;
-        menuEncontrado.publicado=menu.publicado;
-        menuEncontrado.autor=menu.autor;
-        menuEncontrado.icono=menu.icono;
-        menuEncontrado.enlaces=menu.enlaces;
-        menuEncontrado.main=menu.main;
-        menuEncontrado.publico=menu.publico;
-        menuEncontrado.url=menu.url;
-        //Ultimo editor
-        
+        menuEncontrado=menu;
         return this.menuService.save(menuEncontrado);
     }
 
