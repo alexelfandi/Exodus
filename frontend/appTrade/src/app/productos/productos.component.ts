@@ -61,6 +61,10 @@ export class ProductosComponent implements OnInit {
     this.router.navigateByUrl(`/productoDetalles/${id}`);
   }
 
+  editarProducto(id: number): void {
+    this.router.navigateByUrl(`/editarProducto/${id}`);
+  }
+
   borrarProducto(producto: Producto): void {
 
     this.productosService.borrarProducto(producto).subscribe((datos) => {
@@ -89,7 +93,7 @@ export class ProductosComponent implements OnInit {
       // Filtra y devuelve un array con un solo elemento dentro
       this.productosService.getProductos().subscribe((datos) => {
         this.listaProductos = datos;
-        this.listaProductos = this.listaProductos.filter((p)=>p.nombre == this.filtrado);
+        this.listaProductos = this.listaProductos.filter((p)=>p.titulo == this.filtrado);
       });
       
       

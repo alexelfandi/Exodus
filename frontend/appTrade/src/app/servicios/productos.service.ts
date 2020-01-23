@@ -15,7 +15,7 @@ export class ProductosService {
   }
 
   public getProductos(): Observable<Producto[]>{
-    return this.http.get<Producto[]>("http://localhost:3000/lista");
+    return this.http.get<Producto[]>("http://localhost:3000/publicacion/publicacion");
     
   }
 
