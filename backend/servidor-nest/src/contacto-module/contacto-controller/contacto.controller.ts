@@ -31,7 +31,7 @@ export class ContactoController {
 
     @Delete(":id")
     async borrarPorId(@Param()id :number):Promise<Contacto>{
-        return this.contactoService.delete(id);
+        return await this.contactoService.delete(id);
     }
 
 }

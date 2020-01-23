@@ -65,9 +65,9 @@ export class ProductosComponent implements OnInit {
     this.router.navigateByUrl(`/editarProducto/${id}`);
   }
 
-  borrarProducto(producto: Producto): void {
+  borrarProducto(id : number): void {
 
-    this.productosService.borrarProducto(producto).subscribe((datos) => {
+    this.productosService.borrarProducto(id).subscribe((datos) => {
       this.productosService.getProductos().subscribe((datos) => {
         this.listaProductos = datos;
         console.log(this.listaProductos);
