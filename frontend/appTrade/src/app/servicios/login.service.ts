@@ -16,7 +16,7 @@ export class LoginService {
   }
 
   public register(usuario: Cuenta){
-    return this.http.post<Cuenta>("http://localhost:3000/register", usuario);
+    return this.http.post<Cuenta>("http://localhost:3000/user", usuario);
   }
 
   public isLogged(): boolean{

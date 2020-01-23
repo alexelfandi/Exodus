@@ -40,7 +40,9 @@ export class UserController {
     }
 
     @Post()
-    create(@Body() user : User):Promise<User>{
+    register(@Body() user : User):Promise<User>{
+        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA CONTROLLER");
+        
         return this.userService.save(user);
     }
 
