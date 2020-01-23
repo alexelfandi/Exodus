@@ -3,7 +3,6 @@ import { UserService } from 'src/user-module/user-service/user.service';
 import { JwtService } from '@nestjs/jwt';
 import { User } from 'src/user-module/user.entity';
 import * as bcrypt from "bcrypt";
-import a = require('../../../../auth.json');
 
 @Injectable()
 export class AuthService {
@@ -11,10 +10,13 @@ export class AuthService {
     constructor(private readonly usersService: UserService, private readonly jwtService: JwtService) {}
 
     async validateUser(username: string, pass: string): Promise<any> {
-
+      console.log("Buscar al usuario");
+      
 
       // Buscamos el usuario 
       await this.usersService.findByUsername(username).then((user)=>{
+        console.log("He entrado");
+        
         
         if (user == undefined) {
           // Usuario no encontrado
@@ -22,12 +24,12 @@ export class AuthService {
           
         } else {
           // usuario encontrado
+            console.log("usuarioEncotnroado");
+            
 
-
-            console.log(this.salt)
             bcrypt.hash(pass, this.salt, (err, passwordEcrypted)=>{
-              console.log(passwordEcrypted)
-              console.log(user.password)
+              console.log("password encriptada", passwordEcrypted)
+              console.log("password password",user.password)
               if (user.password === passwordEcrypted) {
                 console.log("Hombre Pepe! Cuanto tiempo!")
               }

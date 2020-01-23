@@ -7,6 +7,7 @@ import * as bcrypt from "bcrypt";
 @Injectable()
 export class UserService {
 
+    salt: string = "$2b$10$KaKbalAr94e4LIltsN3muea";
     constructor(@InjectRepository(User) private readonly userRepository: Repository<User>) { }
 
     findAll(): Promise<User[]> {
@@ -30,14 +31,12 @@ export class UserService {
         // Si no encuentra el usuario es undefined
         if (user == undefined) {
             // Encriptamos la contraseña
-            bcrypt.genSalt(10,(err, salt)=>{
-                bcrypt.hash(newUser.password, salt, (err, encryptedPass)=>{
+                bcrypt.hash(newUser.password, this.salt, (err, encryptedPass)=>{
 
                     newUser.password = encryptedPass;
 
                     this.userRepository.save(newUser);
                 });
-            });
 
         } else {
             // El usuario ya existe
