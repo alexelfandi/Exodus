@@ -23,10 +23,6 @@ export class PublicacionService {
         return this.publicacionRepository.save(publicacionNueva);
     }
 
-   /* CrearTipoPublicacion(tipo: Publicacion):Promise<Publicacion>{
-        return this.publicacionRepository.save(tipo.tipo);
-    }*/
-
     async BuscarporId(id: number): Promise<Publicacion>{
         return this.publicacionRepository.findOne(id);
     }
