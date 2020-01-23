@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, Double } from "typeorm";
 
 @Entity()
 export class Publicacion {
@@ -71,6 +71,10 @@ export class Publicacion {
      @Column()
 
      fecha_ultima_mod : Date
+
+     @Column({type: "float"})
+
+     valor: Double
 
 
 }
