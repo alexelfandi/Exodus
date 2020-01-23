@@ -7,19 +7,23 @@ export class PublicacionController {
 
     constructor(private readonly myService : PublicacionService){}
 
-    @Get('publicacion')
+    @Get()
     getDatos(): Promise <Publicacion[]> {
         return this.myService.BuscalosTodos();
     }
+    @Get(':id')
+    getPorId(@Param('id') id:number): Promise <Publicacion> {
+        return this.myService.BuscarporId(id);
+    }
     @Post()
     async create(@Body() dato: Publicacion) {
-        return this.myService.Crear(dato);
+        return this.myService.save(dato);
     }
     @Put(':id')
-    async update(@Param('id') id: number, @Body() publicacion: Publicacion) {
-      const publicacionnueva = await this.myService.BuscarporId(id);
-      publicacion = publicacionnueva;
-      return this.myService.Actualizar(publicacion);
+    async update(@Param('id') id: number, @Body() publicacion: Publicacion): Promise<Publicacion> {
+      let publicacionnueva = await this.myService.BuscarporId(id);
+      publicacionnueva = publicacion;
+      return this.myService.save(publicacionnueva);
     }
     @Delete(':id')
     remove(@Param('id') id: number) {

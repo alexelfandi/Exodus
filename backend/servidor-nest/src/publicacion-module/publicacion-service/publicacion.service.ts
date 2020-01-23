@@ -19,7 +19,7 @@ export class PublicacionService {
         return this.publicacionRepository.find();
     }
 
-    Crear(publicacionNueva: Publicacion):Promise<Publicacion>{
+    save(publicacionNueva: Publicacion):Promise<Publicacion>{
         return this.publicacionRepository.save(publicacionNueva);
     }
 
