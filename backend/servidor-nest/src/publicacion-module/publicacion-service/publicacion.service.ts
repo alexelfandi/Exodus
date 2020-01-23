@@ -35,21 +35,6 @@ export class PublicacionService {
         return this.publicacionRepository.findOne(tipo);
     }
 
-    ConsultarPublicado(publicado: boolean, id:number): Promise<Publicacion>{
-        
-        const consulta = this.publicacionRepository.findOne(id);
-
-        if((consulta != undefined)&&(this.Publica.publicado == publicado)){
-
-            return 
-
-        }
-            
-         
-        return null;
-        
-    }
-
     async Eliminar(id: number): Promise<Publicacion>{
         const Objeto = await this.publicacionRepository.findOne(id);
         return this.publicacionRepository.remove(Objeto);
