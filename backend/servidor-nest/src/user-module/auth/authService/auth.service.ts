@@ -13,9 +13,11 @@ export class AuthService {
       console.log("Buscar al usuario");
       
 
+      /*
       // Buscamos el usuario 
       await this.usersService.findByUsername(username).then((user)=>{
         console.log("He entrado");
+        console.log("user", user);
         
         
         if (user == undefined) {
@@ -25,11 +27,12 @@ export class AuthService {
         } else {
           // usuario encontrado
             console.log("usuarioEncotnroado");
+            console.log("HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
             
 
             bcrypt.hash(pass, this.salt, (err, passwordEcrypted)=>{
-              console.log("password encriptada", passwordEcrypted)
-              console.log("password password",user.password)
+              console.log("password encriptada" + passwordEcrypted)
+              console.log("password password" + user.password)
               if (user.password === passwordEcrypted) {
                 console.log("Hombre Pepe! Cuanto tiempo!")
               }
@@ -40,7 +43,7 @@ export class AuthService {
         }
         
       });
-      
+      */
       
       
 

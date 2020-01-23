@@ -14,7 +14,10 @@ export class UserController {
     //@UseGuards(AuthGuard('local'))
     @Post('auth/login')
     async login(@Body() body: User) {
+
+        console.log("Hola");
         
+
       if (await this.authService.validateUser(body.username, body.password)) {
           let user = await this.userService.findByUsername(body.username);
           console.log(user);
