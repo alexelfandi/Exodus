@@ -32,7 +32,7 @@ export class RegistroComponent implements OnInit {
       usuario.activo = true;
       usuario.grupo = "visitante";
       this.loginService.register(usuario).subscribe((datos)=>{
-        console.log(datos + "wwwwww");
+
         
         // this.router.navigateByUrl("/inicioSesion");
       });

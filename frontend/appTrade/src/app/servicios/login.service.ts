@@ -15,7 +15,7 @@ export class LoginService {
     return this.http.post<Cuenta>("http://localhost:3000/user/auth/login", usuario);
   }
 
-  public register(usuario: Cuenta){
+  public register(usuario: Cuenta):  Observable<Cuenta> | undefined{
     return this.http.post<Cuenta>("http://localhost:3000/user", usuario);
   }
 
