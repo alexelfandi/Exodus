@@ -23,31 +23,12 @@ export class PublicacionService {
         return this.publicacionRepository.save(publicacionNueva);
     }
 
-   /* CrearTipoPublicacion(tipo: Publicacion):Promise<Publicacion>{
-        return this.publicacionRepository.save(tipo.tipo);
-    }*/
-
     async BuscarporId(id: number): Promise<Publicacion>{
         return this.publicacionRepository.findOne(id);
     }
 
     async BuscarporTipo(tipo: string): Promise<Publicacion>{
         return this.publicacionRepository.findOne(tipo);
-    }
-
-    ConsultarPublicado(publicado: boolean, id:number): Promise<Publicacion>{
-        
-        const consulta = this.publicacionRepository.findOne(id);
-
-        if((consulta != undefined)&&(this.Publica.publicado == publicado)){
-
-            return 
-
-        }
-            
-         
-        return null;
-        
     }
 
     async Eliminar(id: number): Promise<Publicacion>{
