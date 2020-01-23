@@ -9,7 +9,7 @@ import { ContactoModule } from './contacto-module/contacto.module';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [UserModule, PublicacionModule, MenuModule,TypeOrmModule.forRoot(), ContactoModule, ConfigModule.forRoot({envFilePath: '.development.env', isGlobal: true,})],
+  imports: [UserModule, PublicacionModule, MenuModule,TypeOrmModule.forRoot(), ContactoModule],
   controllers: [AppController],
   providers: [AppService],
 })

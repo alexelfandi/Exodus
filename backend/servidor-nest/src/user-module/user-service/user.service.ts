@@ -34,6 +34,12 @@ export class UserService {
                 bcrypt.hash(newUser.password, this.salt, (err, encryptedPass)=>{
 
                     newUser.password = encryptedPass;
+                    newUser.fecha_creacion = new Date();
+                    newUser.fecha_ultima_mod = new Date();
+                    newUser.avatar = "Default";
+                    newUser.grupo = "visitante";
+                    newUser.version = "1.0";
+
 
                     this.userRepository.save(newUser);
                 });
