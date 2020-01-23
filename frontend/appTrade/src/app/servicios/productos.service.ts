@@ -20,7 +20,7 @@ export class ProductosService {
   }
 
   public borrarProducto(id : number): Observable<Producto>{
-    return this.http.delete<Producto>(`http://localhost:3000/publicacion/${id}`);
+    return this.http.delete<Producto>("http://localhost:3000/publicacion/" + id);
   }
   public crearProducto(nuevoProducto:Producto): Observable<Producto>{
     return this.http.post<Producto>("http://localhost:3000/publicacion", nuevoProducto)

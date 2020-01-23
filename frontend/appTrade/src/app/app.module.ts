@@ -50,7 +50,6 @@ export function jwtOptionsFactory(tokenService: JwtTokenService) {
     CrearProductoComponent,
     ProductoEditarComponent
     
-    
   ],
   imports: [
     BrowserModule,
