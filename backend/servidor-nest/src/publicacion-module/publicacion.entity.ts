@@ -16,39 +16,39 @@ export class Publicacion {
 
      titulo : string 
 
-     @Column()
+     @Column({nullable:true})
 
      main : boolean
 
-     @Column()
+     @Column({})
 
      tipo : string
 
-     @Column()
+     @Column({nullable:true})
 
      url : string
 
-     @Column()
+     @Column({nullable:true})
 
      publicado : boolean
 
-     @Column()
+     @Column({nullable:true})
 
      publico : boolean
 
-     @Column()
+     @Column({nullable:true})
 
      autor : string
 
-     @Column()
+     @Column({nullable:true})
 
      ultimo_editor : string
 
-     @Column({length:500})
+     @Column({length:500,nullable:true})
 
      entradilla : string
 
-     @Column()
+     @Column({nullable:true})
 
      imagen_portada : string
 
@@ -56,7 +56,7 @@ export class Publicacion {
 
      texto_completo : string
 
-     @Column()
+     @Column({nullable:true})
 
      tags : string
 
@@ -64,11 +64,11 @@ export class Publicacion {
 
      version : string
 
-     @Column()
+     @Column({nullable:true})
 
      fecha_creacion : Date
 
-     @Column()
+     @Column({nullable:true})
 
      fecha_ultima_mod : Date
 
