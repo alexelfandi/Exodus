@@ -17,9 +17,9 @@ export class EdicionUsuariosComponent implements OnInit {
   ngOnInit() {
 
     this.activeRouter.params.subscribe((datos)=>{
-      console.log("USUARIO" , datos);
       
       this.usuarioService.getUsuarioById(datos.id).subscribe((user)=>{
+        console.log("USER", user);
         
         this.usuario = user;
           

@@ -75,14 +75,22 @@ export class UserController {
 
     @Get(':id')
     findById(@Param() id: number): Promise<User> {
+        console.log(id);
+        
         return this.userService.findById(id);
     }
 
     @Put(':id')
     async modifyById(@Param() id: number, @Body() user: User): Promise<User> {
+        console.log("id", id);
+        
+        console.log("User", user);
+        
         let userEncontrado = await this.userService.findById(id);
         userEncontrado = user;
-        return this.userService.save(userEncontrado);
+        console.log("USER ENCONTRADO", userEncontrado);
+        
+        return this.userService.Update(userEncontrado);
     }
 
     @Delete(':id')

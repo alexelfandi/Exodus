@@ -23,13 +23,13 @@ export class UsuariosService {
   }
 
   getUsuarioById(id: number): Observable<Cuenta>{
-    return this.http.post<Cuenta>("http://localhost:3000/getUsuarioById", id);
+    return this.http.get<Cuenta>(`http://localhost:3000/user/${id}`);
   }
 
 
 
   editarUsuario(usuario: Cuenta): Observable<Cuenta>{
-    return this.http.post<Cuenta>("http://localhost:3000/editarUsuario", usuario);
+    return this.http.put<Cuenta>(`http://localhost:3000/user/${usuario.id}`, usuario);
   }
 
 

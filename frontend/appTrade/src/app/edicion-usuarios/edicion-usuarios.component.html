@@ -21,7 +21,7 @@
         <tr>
             <td>active:</td>
             <td>
-                    <select  [(ngModel)]="usuario.active" class="form-control" name="actve" id="active">
+                    <select  [(ngModel)]="usuario.activo" class="form-control" name="actve" id="active">
                         <option value="true">yes</option>
                         <option value="false">no</option>
                     </select>
@@ -30,9 +30,12 @@
         <tr>
             <td>Rol:</td>
             <td>
-                    <select  [(ngModel)]="usuario.rol" class="form-control" name="rol" id="rol">
-                        <option value="admin">admin</option>
-                        <option value="common">common</option>
+                    <select  [(ngModel)]="usuario.grupo" class="form-control" name="rol" id="rol">
+                        <option value="admin">Admin</option>
+                        <option value="visitante">Visitante</option>
+                        <option value="editor">Editor</option>
+                        <option value="subscriptor">Subscriptor</option>
+                        <option value="redactor">Redactor</option>
                     </select>
             </td>
         </tr>
