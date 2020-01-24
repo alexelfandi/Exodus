@@ -85,14 +85,10 @@ export class UserController {
         return this.userService.save(userEncontrado);
     }
 
-    @Post('/delete')
-    borrarPorId(@Param() id: number ): Promise<User> {
+    @Delete(':id')
+    async borrarPorId(@Param() id: number ): Promise<User> {
         
-        console.log(id);
-        console.log("HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
-        
-        
-        let usuarioABorrar =  this.userService.findById(id);
-        return this.userService.delete(10);
+        let usuarioABorrar = await this.userService.findById(id);
+        return this.userService.delete(usuarioABorrar.id);
     }
 }

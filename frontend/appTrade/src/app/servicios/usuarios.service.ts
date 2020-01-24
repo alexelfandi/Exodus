@@ -15,7 +15,7 @@ export class UsuariosService {
 
 
   borrarusuario(id:  number):Observable<Cuenta>{
-    return this.http.post<Cuenta>(`http://localhost:3000/user/delete`, id);
+    return this.http.delete<Cuenta>(`http://localhost:3000/user/${id}`);
   }
 
   getTodos(): Observable<Cuenta[]>{

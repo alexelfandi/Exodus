@@ -70,7 +70,26 @@ export class ListaUsuariosComponent implements OnInit {
   }
 
   borrarUsuario(id : number){
-    this.usuariosService.borrarusuario(id);
+    this.usuariosService.borrarusuario(id).subscribe((datos)=>{
+      
+      if (datos.grupo == "admin") {
+        this.getTodosAdmin();
+      } else if (datos.grupo == "visitante"){
+        this.getTodosCommon();
+      } else if (datos.grupo == "editor"){
+        this.getTodosEditor();
+      } else if (datos.grupo == "subscriptor"){
+        this.getTodosSubscriptor();
+      } else if (datos.grupo == "redactor"){
+        this.getTodosredactor();
+      }
+
+      
+      
+      
+      
+      
+    });
   }
 
 }
