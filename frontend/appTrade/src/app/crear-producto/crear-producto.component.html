@@ -6,13 +6,13 @@
                 <td><label for="nombre">Nombre</label></td>
             </tr>
             <tr>
-                <td><input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="producto.titulo" required /></td>
+                <td><input type="text" name="nombre" class="form-control" ng-pattern="[0-9]" id="nombre" [(ngModel)]="producto.titulo" required /></td>
             </tr>
             <tr>
                 <td><label for="valor">Valor</label></td>
             </tr>
             <tr>
-                <td><input type="text" name="valor" class="form-control" id="valor" [(ngModel)]="producto.valor" required /></td>
+                <td><input type="number" name="valor" class="form-control" id="valor" [(ngModel)]="producto.valor" required /></td>
             </tr>
             <tr>
                 <td><label for="descripcion">Descripcion</label></td>
@@ -25,10 +25,14 @@
             <tr>
                 <td><label for="referencia">Referencia</label></td>
             </tr>
-            
-            <tr>
-                <td><input type="text" name="referencia" class="form-control" id="nombre" [(ngModel)]="producto.tipo" required/></td>
-            </tr>
+            <select name="referencia" [(ngModel)]="producto.tags" required>
+                <option value="Tecnologia">Tecnologia</option> 
+                <option value="Hogar" selected>Hogar</option>
+                <option value="Baño">Baño</option>
+              </select>
+            <!--<tr>
+                <td><input type="text" name="referencia" class="form-control" id="tag" [(ngModel)]="producto.tags" required/></td>
+            </tr> -->
             
             <tr>
                 <td><hr></td>

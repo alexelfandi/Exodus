@@ -25,4 +25,7 @@ export class ProductosService {
   public crearProducto(nuevoProducto:Producto): Observable<Producto>{
     return this.http.post<Producto>("http://localhost:3000/publicacion", nuevoProducto)
   }
+  public editarProducto(producto : Producto):Observable<Producto>{
+    return this.http.put<Producto>("http://localhost:3000/publicacion", producto);
+  }
 }

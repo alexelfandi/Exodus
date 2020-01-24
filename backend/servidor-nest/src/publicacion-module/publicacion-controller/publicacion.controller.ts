@@ -16,12 +16,12 @@ export class PublicacionController {
         return this.myService.BuscarporId(id);
     }
     @Post()
-    async create(@Body() dato: Publicacion) {
+    async create(@Body() dato: Publicacion):Promise<Publicacion> {
         return this.myService.save(dato);
     }
-    @Put(':id')
-    async update(@Param('id') id: number, @Body() publicacion: Publicacion): Promise<Publicacion> {
-      let publicacionnueva = await this.myService.BuscarporId(id);
+    @Put()
+    async update( @Body() publicacion: Publicacion): Promise<Publicacion> {
+      let publicacionnueva = await this.myService.BuscarporId(publicacion.id);
       publicacionnueva = publicacion;
       return this.myService.save(publicacionnueva);
     }

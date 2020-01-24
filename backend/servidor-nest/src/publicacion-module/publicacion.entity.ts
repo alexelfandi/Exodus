@@ -20,7 +20,7 @@ export class Publicacion {
 
      main : boolean
 
-     @Column({})
+     @Column({default:""})
 
      tipo : string
 
