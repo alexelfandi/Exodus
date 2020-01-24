@@ -2,9 +2,8 @@ export class Contacto {
 
     constructor(
 
-        public email:string,
-        public password:string,
-        public description:string
+        public email?:string,
+        public descripcion?:string
 
     ){}
 
