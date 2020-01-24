@@ -1,10 +1,8 @@
 <p>producto-editar works!</p>
-<form>
+<form (ngSubmit)="salvar(producto)">
     <p>Nombre:<input type="text" [(ngModel)] = "producto.titulo" name="nombre"/></p>
-    <!--<p>Imagen:<input type="text" [(ngModel)] = "producto.nombre" name="nombre"/></p>-->
     <p>Descripcion:<input type="text" [(ngModel)] = "producto.texto_completo" name="descripcion"/></p>
     <p>Valor:<input type="text" [(ngModel)] = "producto.valor" name="valor"/></p>
     <p>Referencia:<input type="text" [(ngModel)] = "producto.tags" name="referencia"/></p>
-    <input type="button" value="salvar" (click)="salvar(producto); producto='' ">
-    <!--<p></p>-->
+    <input type="submit" value="salvar">
 </form>

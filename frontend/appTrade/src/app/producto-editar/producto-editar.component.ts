@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosService } from '../servicios/productos.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Producto } from '../dominio/producto';
 
 @Component({
@@ -14,7 +14,7 @@ export class ProductoEditarComponent implements OnInit {
   idProducto: number;
   producto: Producto;
 
-  constructor(private productosService: ProductosService, private activatedRouter: ActivatedRoute) { }
+  constructor(private productosService: ProductosService, private activatedRouter: ActivatedRoute, private router : Router) { }
 
   ngOnInit() {
 
@@ -28,17 +28,12 @@ export class ProductoEditarComponent implements OnInit {
       this.producto = this.listaProductos.filter(producto => producto.id == this.idProducto)[0];
       
     });
-
-
   }
 
-  /*salvar(){
-    this.servicio.actualizar(this.productoEditar).pipe(flatMap(res => this.servicio.buscarTodos()))
-    .subscribe(()=>{
-      this.router.navigate(['/lista']);
-    });
-  }*/
-
-
-
+  salvar(producto : Producto){
+   
+    this.productosService.editarProducto(producto).subscribe((datos)=>{
+      this.router.navigateByUrl("/productos");
+    })
+  }
 }
