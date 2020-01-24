@@ -2,24 +2,20 @@ import { Injectable } from '@nestjs/common';
 import { UserService } from 'src/user-module/user-service/user.service';
 import { JwtService } from '@nestjs/jwt';
 import { User } from 'src/user-module/user.entity';
-
+import * as bcrypt from "bcrypt";
 
 @Injectable()
 export class AuthService {
+    salt: string = "$2b$10$KaKbalAr94e4LIltsN3muea";
     constructor(private readonly usersService: UserService, private readonly jwtService: JwtService) {}
 
-    async validateUser(username: string, pass: string): Promise<any> {
-      const user = await this.usersService.findByUsername(username);
-      console.log(user);
+    validateUser(username: string, pass: string): Promise<User> {
       
-      if (user && user.password === pass) {
-        return user;
-      }
-      return false;
+      // Buscamos el usuario 
+      return this.usersService.findByUsername(username);
     }
 
-    async login(user: User) {
-      console.log(user);
+    login(user: User) {
       
         const payload = { username: user.username, sub: user.id, role: user.grupo };
         const userAMandar = {
@@ -28,6 +24,7 @@ export class AuthService {
           access_token: this.jwtService.sign(payload),
           expiresIN: "300s"
         }
+        console.log(userAMandar)
         return userAMandar;
       }
 }
