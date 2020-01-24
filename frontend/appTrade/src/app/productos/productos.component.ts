@@ -16,6 +16,14 @@ import { NgbSlideEvent, NgbSlideEventSource, NgbCarousel } from '@ng-bootstrap/n
 export class ProductosComponent implements OnInit {
 
   esAdmin: boolean = false;
+  esVisitante :boolean = false;
+  esRedactor :boolean = false;
+  esSuscriptor :boolean = false;
+  esEditor :boolean = false;
+
+
+
+
 
   public listaProductos: Producto[] = [];
 
@@ -47,7 +55,18 @@ export class ProductosComponent implements OnInit {
       console.log(this.listaProductos);
     });
 
-    this.esAdmin = this.authService.checkRole();
+    
+    if(this.authService.checkRole() == "admin"){
+      this.esAdmin =true;
+    }else if(this.authService.checkRole() == "visitante"){
+      this.esVisitante= true;
+    }else if(this.authService.checkRole() == "redactor"){
+      this.esRedactor=true;
+    }else if(this.authService.checkRole() == "editor"){
+      this.esEditor=true;
+    }else if(this.authService.checkRole() == "suscriptor"){
+      this.esSuscriptor=true;
+    }
 
   }
 

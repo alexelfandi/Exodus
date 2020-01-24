@@ -67,11 +67,11 @@
 <router-outlet></router-outlet>
   
   <div id="mySidebar" class="sidebar">
-    <ng-template [ngIf]="esAdmin">
+    <ng-template [ngIf]="logeado">
       <a>{{nombreUsuario}}</a>
       <hr class="sidebar-line">
     </ng-template>
-    <ng-template [ngIf]="!esAdmin">
+    <ng-template [ngIf]="!logeado">
       <a [routerLink]="['/inicioSesion']">iniciar sesion</a>
       <hr class="sidebar-line">
     </ng-template>

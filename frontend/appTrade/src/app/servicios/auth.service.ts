@@ -57,10 +57,26 @@ export class AuthService {
     let rol = localStorage.getItem("usuarioRole");
 
     if (rol == "admin") {
-      return true;
-    } else {
-      return false;
+
+      return "admin";
+      
+    } else if (rol=="editor") {
+
+      return "editor";
+
+    }else if(rol=="visitante"){
+
+      return "visitante";
+
+    }else if(rol=="suscriptor"){
+
+    return "suscriptor";
+
+    }else if(rol=="redactor"){
+
+      return "redactor";
     }
+
   }
 
   isLogged(): boolean{
