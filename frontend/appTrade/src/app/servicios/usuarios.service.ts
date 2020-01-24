@@ -13,15 +13,25 @@ export class UsuariosService {
   constructor(private http: HttpClient) { }
 
 
+
+  borrarusuario(id:  number):Observable<Cuenta>{
+    return this.http.post<Cuenta>(`http://localhost:3000/user/delete`, id);
+  }
+
   getTodos(): Observable<Cuenta[]>{
-    return this.http.get<Cuenta[]>("http://localhost:3000/listaUsuarios");
+    return this.http.get<Cuenta[]>("http://localhost:3000/user");
   }
 
   getUsuarioById(id: number): Observable<Cuenta>{
     return this.http.post<Cuenta>("http://localhost:3000/getUsuarioById", id);
   }
 
+
+
   editarUsuario(usuario: Cuenta): Observable<Cuenta>{
     return this.http.post<Cuenta>("http://localhost:3000/editarUsuario", usuario);
   }
+
+
+
 }

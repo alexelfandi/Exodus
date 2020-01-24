@@ -27,12 +27,23 @@ export class InicioSesionComponent implements OnInit {
   }
   login(usuarioNuevo){
 
+
+    // primero mirar si los datos no estan vacios
+    console.log(usuarioNuevo.username);
+    
+
+    if ( usuarioNuevo.username == "" || usuarioNuevo.password == "" || usuarioNuevo.username == undefined || usuarioNuevo.password == undefined) {
+
+      this.mensajeError = "No deben haber campos vacios";
+
+    } else {
+
       this.AuthService.login(usuarioNuevo).subscribe((datos)=>{
       
         console.log("DATOS", datos);
         
   
-        if (datos == false) {
+        if (datos == false || !datos || datos == null) {
   
           this.mensajeError = "El usuario o la contraseña son incorrectos"
   
@@ -50,6 +61,11 @@ export class InicioSesionComponent implements OnInit {
         }
    
       });
+
+
+    }
+
+     
    
     
   }

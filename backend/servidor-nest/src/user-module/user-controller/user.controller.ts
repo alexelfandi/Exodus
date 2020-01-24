@@ -8,6 +8,7 @@ import * as bcrypt from "bcrypt";
 @Controller('user')
 export class UserController {
 
+
     constructor(private readonly authService: AuthService, private readonly userService: UserService) { }
 
     //Servicio de autentificacion
@@ -84,8 +85,14 @@ export class UserController {
         return this.userService.save(userEncontrado);
     }
 
-    @Delete(":id")
-    async borrarPorId(@Param() id: number): Promise<User> {
-        return this.userService.delete(id);
+    @Post('/delete')
+    borrarPorId(@Param() id: number ): Promise<User> {
+        
+        console.log(id);
+        console.log("HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
+        
+        
+        let usuarioABorrar =  this.userService.findById(id);
+        return this.userService.delete(10);
     }
 }

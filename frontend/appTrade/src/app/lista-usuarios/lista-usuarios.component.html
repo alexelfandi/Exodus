@@ -25,16 +25,16 @@
         <th scope="row">{{usuarioAdmin.id}}</th> <!-- ID -->
         <td>{{usuarioAdmin.username}}</td>
         <td>{{usuarioAdmin.email}}</td>
-        <td>{{usuarioAdmin.rol}}</td>
-        <td>{{usuarioAdmin.active}}</td>
-        <td><input type="button" class="btn btn-primary" (click)="borrarUsuario(usuarioAdmin)" value="Borrar"></td>
+        <td>{{usuarioAdmin.grupo}}</td>
+        <td>{{usuarioAdmin.activo}}</td>
+        <td><input type="button" class="btn btn-primary" (click)="borrarUsuario(usuarioAdmin.id)" value="Borrar"></td>
         <td><input type="button" class="btn btn-primary" (click)="editarUsuario(usuarioAdmin)" value="Editar"></td>
       </tr>
     </tbody>
   </table>
 
   
-  <h2>Comunes</h2>
+  <h2>Visitantes</h2>
   <hr>
   <table class="table table-striped">
     <thead>
@@ -53,10 +53,91 @@
         <th scope="row">{{usuarioCommon.id}}</th> <!-- ID -->
         <td>{{usuarioCommon.username}}</td>
         <td>{{usuarioCommon.email}}</td>
-        <td>{{usuarioCommon.rol}}</td>
-        <td>{{usuarioCommon.active}}</td>
-        <td><input type="button" class="btn btn-primary" (click)="borrarUsuario(usuarioCommon) " value="Borrar"></td>
+        <td>{{usuarioCommon.grupo}}</td>
+        <td>{{usuarioCommon.activo}}</td>
+        <td><input type="button" class="btn btn-primary" (click)="borrarUsuario(usuarioCommon.id) " value="Borrar"></td>
         <td><input type="button" class="btn btn-primary" (click)="editarUsuario(usuarioCommon)"  value="Editar"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Editores</h2>
+  <hr>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">email</th>
+        <th scope="col">rol</th>
+        <th scope="col">active</th>
+        <th scope="col">borrar</th>
+        <th scope="col">editar</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let usuarioEditor of usuariosEditor">
+      <tr>
+        <th scope="row">{{usuarioEditor.id}}</th> <!-- ID -->
+        <td>{{usuarioEditor.username}}</td>
+        <td>{{usuarioEditor.email}}</td>
+        <td>{{usuarioEditor.grupo}}</td>
+        <td>{{usuarioEditor.activo}}</td>
+        <td><input type="button" class="btn btn-primary" (click)="borrarUsuario(usuarioEditor.id) " value="Borrar"></td>
+        <td><input type="button" class="btn btn-primary" (click)="editarUsuario(usuarioEditor)"  value="Editar"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Subscriptores</h2>
+  <hr>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">email</th>
+        <th scope="col">rol</th>
+        <th scope="col">active</th>
+        <th scope="col">borrar</th>
+        <th scope="col">editar</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let usuarioSubscriptor of usuariosSubscriptor">
+      <tr>
+        <th scope="row">{{usuarioSubscriptor.id}}</th> <!-- ID -->
+        <td>{{usuarioSubscriptor.username}}</td>
+        <td>{{usuarioSubscriptor.email}}</td>
+        <td>{{usuarioSubscriptor.grupo}}</td>
+        <td>{{usuarioSubscriptor.activo}}</td>
+        <td><input type="button" class="btn btn-primary" (click)="borrarUsuario(usuarioSubscriptor.id) " value="Borrar"></td>
+        <td><input type="button" class="btn btn-primary" (click)="editarUsuario(usuarioSubscriptor)"  value="Editar"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Redactores</h2>
+  <hr>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">email</th>
+        <th scope="col">rol</th>
+        <th scope="col">active</th>
+        <th scope="col">borrar</th>
+        <th scope="col">editar</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let usuarioRedactor of usuariosRedactor">
+      <tr>
+        <th scope="row">{{usuarioRedactor.id}}</th> <!-- ID -->
+        <td>{{usuarioRedactor.username}}</td>
+        <td>{{usuarioRedactor.email}}</td>
+        <td>{{usuarioRedactor.grupo}}</td>
+        <td>{{usuarioRedactor.activo}}</td>
+        <td><input type="button" class="btn btn-primary" (click)="borrarUsuario(usuarioRedactor.id) " value="Borrar"></td>
+        <td><input type="button" class="btn btn-primary" (click)="editarUsuario(usuarioRedactor)"  value="Editar"></td>
       </tr>
     </tbody>
   </table>
