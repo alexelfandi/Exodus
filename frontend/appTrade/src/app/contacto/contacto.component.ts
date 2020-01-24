@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Contacto } from '../dominio/contacto';
 
 @Component({
   selector: 'app-contacto',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactoComponent implements OnInit {
 
-  Nombre: string = "Alex";
+  dato: Contacto[] = [];
+
   constructor() { }
 
   ngOnInit() {
