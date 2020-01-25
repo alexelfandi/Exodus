@@ -17,8 +17,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     
+    // Si es rol es admin, vera lo de usuarios
+    if (this.authService.checkRole() == "admin") {
+      this.esAdmin = true;
+    }
     
-    this.esAdmin = this.authService.checkRole();
+    
   
     this.logeado = this.authService.isLogged();
     if (this.logeado) {

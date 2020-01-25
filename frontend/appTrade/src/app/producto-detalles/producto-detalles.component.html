@@ -1,5 +1,22 @@
-Id: {{producto.id}} <br>
-Nombre: {{producto.titulo}} <br>
-Descripcion: {{producto.texto_completo}} <br>
-Valor: {{producto.valor}} <br>
-<input type="button" name="volver" id="volver" value="Volver" [routerLink]="['/productos']"> 
+
+<h2><input type="button" class="btn btn-primary" name="volver" id="volver" value="Volver" [routerLink]="['/productos']"> Detalles de {{producto.titulo}}</h2>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{producto.id}}</th>
+        <td>{{producto.titulo}}</td>
+        <td>{{producto.texto_completo}}</td>
+        <td>{{producto.valor}}</td>
+      </tr>
+    </tbody>
+     
+  </table>

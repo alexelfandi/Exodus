@@ -58,7 +58,7 @@ export class ListaUsuariosComponent implements OnInit {
   getTodosSubscriptor(){
     this.usuariosService.getTodos().subscribe((datos)=>{
       
-      this.usuariosSubscriptor = datos.filter((e => e.grupo == "subscriptor"));
+      this.usuariosSubscriptor = datos.filter((e => e.grupo == "suscriptor"));
       
     });
   }
