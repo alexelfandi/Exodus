@@ -7,12 +7,19 @@
 #contenedorInfoTitulo h3 {
     font-size: 50px;
 }
-.contenedorInfoInformacion * {
-    font-size: 20px;
+.contenedorInfoInformacion {
+    font-size: 20px; width: 100%;
+    display: flex;
+    justify-content: center;
     text-align: justify;
-    width: 100%;
+   
 }
 .Nosotros{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+.Nosotros p{
     width: 80%;
 }
 .contenedorRequisitos{
