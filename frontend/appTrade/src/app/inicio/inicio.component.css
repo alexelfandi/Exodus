@@ -10,6 +10,25 @@
 .contenedorInfoInformacion * {
     font-size: 20px;
     text-align: justify;
+    width: 100%;
+}
+.Nosotros{
+    width: 80%;
+}
+.contenedorRequisitos{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+ 
+}
+.Requisitos{
+    width: 80%;
+}
+.table-format{
+    width: 80%;
+}
+.check{
+    width: 20%;
 }
 
 /* MEDIA QUERIES -------------------------------------------------------- */
