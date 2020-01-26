@@ -1,4 +1,4 @@
-# Proyecto Exodus, 
+# Proyecto Exodus
 
 ## Introduccion
 
