@@ -29,7 +29,14 @@
                 <option value="Tecnologia">Tecnologia</option> 
                 <option value="Hogar" selected>Hogar</option>
                 <option value="Baño">Baño</option>
-              </select>
+            </select>
+            <tr>
+                <td><label for="referencia">Publica</label></td>
+            </tr>
+            <select name="referencia" class="form-control" [(ngModel)]="producto.publico" required>
+                <option value="true" selected>Si</option> 
+                <option value="false" selected>No</option>
+            </select>
             <!--<tr>
                 <td><input type="text" name="referencia" class="form-control" id="tag" [(ngModel)]="producto.tags" required/></td>
             </tr> -->

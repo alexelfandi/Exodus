@@ -55,6 +55,8 @@ export class ProductosComponent implements OnInit {
       console.log(this.listaProductos);
     });
 
+
+
     
     if(this.authService.checkRole() == "admin"){
       this.esAdmin =true;
