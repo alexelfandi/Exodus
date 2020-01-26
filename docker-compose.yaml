@@ -1,0 +1,29 @@
+version: '2'
+services:
+  frontend:
+    build: ./frontend
+    #command: npm start
+    volumes:
+      - /data/www
+      - /etc/nginx/conf.d/
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    #environment:
+      # DATABASE_URL: mysql8://mysql8:8080/user
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend:/usr/app/
+      - /usr/app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    environment:
+      DATABASE_URL: mysql8://mysql8:8080/user
+  mongo:
+    image: mysql8:4.0.6
+    ports:
+      - "27017:27017"
