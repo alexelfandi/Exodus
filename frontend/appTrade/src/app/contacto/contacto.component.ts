@@ -17,15 +17,23 @@ export class ContactoComponent implements OnInit {
   constructor(private contactService: ContactosService, private router: Router) { }
 
   ngOnInit() {
-    console.log("ICTIVIDI ALAH");
+
   }
 
   enviar(eldato: Contacto):void{
+
+
+
     console.log(eldato);
-    this.contactService.getAgregar(eldato).subscribe( (modulo) => {
-      
-      this.message = "SU MENSAJE HA SIDO ENVIADO";
-    });
+    if (eldato.descripcion == "" || eldato.email == "") {
+      this.message = "Los campos no deben estar vacios";
+    } else {
+      this.contactService.getAgregar(eldato).subscribe( (modulo) => {
+        
+        this.message = "SU MENSAJE HA SIDO ENVIADO";
+      });
+    }
+    
 
   }
 

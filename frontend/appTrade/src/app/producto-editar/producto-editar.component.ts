@@ -33,8 +33,8 @@ export class ProductoEditarComponent implements OnInit {
 
   salvar(nuevoproducto : Producto){
    
-    if (nuevoproducto.titulo == "" || nuevoproducto.valor == null || nuevoproducto.tipo == "" || nuevoproducto.tags == "" || nuevoproducto.texto_completo == "") {
-      this.message = "Todos los campso deben estar rellenados"
+    if (nuevoproducto.titulo == "" || nuevoproducto.tags == "" || nuevoproducto.texto_completo == "") {
+      this.message = "Todos los campos no deben estar vacios"
     } else {
       this.productosService.editarProducto(nuevoproducto).subscribe((datos)=>{
             this.router.navigateByUrl("/productos");

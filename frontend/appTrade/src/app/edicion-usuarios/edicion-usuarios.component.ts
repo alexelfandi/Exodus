@@ -32,7 +32,7 @@ export class EdicionUsuariosComponent implements OnInit {
 
   editar(usuario: Cuenta){
     
-    if (usuario.username == "" || usuario.email == "" || usuario.grupo || usuario.activo == null) {
+    if (usuario.username == "" || usuario.email == "" || usuario.grupo == "" || usuario.activo == null) {
       this.message = "Los campos no pueden quedar vacios"
     } else {
       this.usuarioService.editarUsuario(usuario).subscribe((datos)=>{
