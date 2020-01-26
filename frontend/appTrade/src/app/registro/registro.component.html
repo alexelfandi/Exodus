@@ -18,7 +18,7 @@
                 <td><label for="email">Email</label></td>
             </tr>
             <tr>
-                <td><input type="email" name="email" class="form-control" id="email"  [(ngModel)]="usuario.email" email required></td>
+                <td><input type="email" name="email" pattern="'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'" class="form-control" id="email"  [(ngModel)]="usuario.email" email required></td>
             </tr>
             <tr>
                 <td><label for="password">Password</label></td>

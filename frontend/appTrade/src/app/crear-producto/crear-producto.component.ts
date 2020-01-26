@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class CrearProductoComponent implements OnInit {
 
   producto: Producto = new Producto();
+  message: string = "";
 
   public listaProductos: Producto[] = [];
   constructor(public servicio:ProductosService, private router:Router) { }
@@ -19,12 +20,18 @@ export class CrearProductoComponent implements OnInit {
   }
 
   crearProducto(nuevoproducto :Producto):void {
-    console.log(nuevoproducto);
-    
-    this.servicio.crearProducto(nuevoproducto).subscribe((datos)=>{
-      console.log("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEee"+datos);
+
+    if (nuevoproducto.titulo == "" || nuevoproducto.valor == null || nuevoproducto.tipo == "" || nuevoproducto.tags == "" || nuevoproducto.texto_completo == "") {
+      this.message = "Los campos no pueden estar vacios"
+    } else {
+      console.log(nuevoproducto);
       
-      
-    })
+      this.servicio.crearProducto(nuevoproducto).subscribe((datos)=>{
+        console.log("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEee"+datos);
+        this.router.navigateByUrl("/productos")
+        
+      })
+    }
+
   }
 }
