@@ -64,11 +64,11 @@ export class Publicacion {
 
      version : string
 
-     @Column({nullable:true})
+     @Column({type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
 
      fecha_creacion : Date
 
-     @Column({nullable:true})
+     @Column({type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
 
      fecha_ultima_mod : Date
 

@@ -23,7 +23,7 @@ export class CrearProductoComponent implements OnInit {
     
     this.servicio.crearProducto(nuevoproducto).subscribe((datos)=>{
       console.log("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEee"+datos);
-      //nuevoproducto.fecha_creacion;
+      
       
     })
   }
