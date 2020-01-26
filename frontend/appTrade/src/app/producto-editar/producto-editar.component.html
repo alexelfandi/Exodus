@@ -1,8 +1,40 @@
-<p>producto-editar works!</p>
+<p>Editar prodcuto</p>
 <form (ngSubmit)="salvar(producto)">
-    <p>Nombre:<input type="text" [(ngModel)] = "producto.titulo" name="nombre"/></p>
-    <p>Descripcion:<input type="text" [(ngModel)] = "producto.texto_completo" name="descripcion"/></p>
-    <p>Valor:<input type="text" [(ngModel)] = "producto.valor" name="valor"/></p>
-    <p>Referencia:<input type="text" [(ngModel)] = "producto.tags" name="referencia"/></p>
-    <input type="submit" value="salvar">
+    <table>
+        <tr>
+            <td><label for="nombre">Nombre:</label></td>
+            <td><input class="form-control" type="text" [(ngModel)]="producto.titulo" name="nombre" /></td>
+        </tr>
+        <tr>
+            <td><label for="descripcion">Descripcion:</label></td>
+            <td><input class="form-control" type="text" [(ngModel)]="producto.texto_completo" name="descripcion" /></td>
+        </tr>
+        <tr>
+            <td><label for="valor">Valor:</label></td>
+            <td><input class="form-control" type="text" [(ngModel)]="producto.valor" name="valor" /></td>
+        </tr>
+        <tr>
+            <td><label for="referencia">Nombre:</label></td>
+            <td>
+                <select class="form-control" name="referencia" [(ngModel)]="producto.tags" id="referencia">
+                    <option value="Tecnologia">Tecnologia</option>
+                    <option value="Baño">Baño</option>
+                    <option value="Hogar">Hogar</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="publico">Publico:</label></td>
+            <td>
+                <select class="form-control" [(ngModel)]="producto.publico" name="publico" id="publico">
+                    <option value="true">Si</option>
+                    <option value="false">No</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input class="btn btn-primary" type="submit" value="salvar"></td>
+        </tr>
+    </table>
 </form>
