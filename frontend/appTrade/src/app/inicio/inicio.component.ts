@@ -23,8 +23,7 @@ export class InicioComponent implements OnInit {
   constructor(private authService: AuthService, private productosService: ProductosService) { }
 
   ngOnInit() {
-    
-    this.productosService.getProductos().subscribe((productos)=>{
+    this.productosService.getProductosPublicos().subscribe((productos)=>{
       console.log(productos);
       
       this.publicacionesPublicas = productos.filter((p)=>p.publico == true);;

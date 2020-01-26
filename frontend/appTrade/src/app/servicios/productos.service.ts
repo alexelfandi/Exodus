@@ -18,6 +18,10 @@ export class ProductosService {
     return this.http.get<Producto[]>("http://localhost:3000/publicacion");
     
   }
+  public getProductosPublicos(): Observable<Producto[]>{
+    return this.http.get<Producto[]>("http://localhost:3000/publicacion/publicos");
+    
+  }
 
   public borrarProducto(id : number): Observable<Producto>{
     return this.http.delete<Producto>("http://localhost:3000/publicacion/" + id);

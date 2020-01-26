@@ -19,6 +19,10 @@ export class PublicacionService {
         return this.publicacionRepository.find();
     }
 
+    BuscalosTodosPublicos(): Promise<Publicacion[]>{
+        return this.publicacionRepository.find({where : {publico: true}});
+    }
+
     save(publicacionNueva: Publicacion):Promise<Publicacion>{
         return this.publicacionRepository.save(publicacionNueva);
     }
