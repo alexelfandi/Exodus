@@ -26,10 +26,16 @@ export class RegistroComponent implements OnInit {
 
   register(usuario: Cuenta){
     
+
     if (this.password2 == usuario.password) {
-      this.loginService.register(usuario).subscribe(()=>{
+
+      usuario.activo = true;
+      usuario.grupo = "visitante";
+      this.loginService.register(usuario).subscribe((datos)=>{
+        console.log("datos en el servicio frontend", datos);
+        
+        
         this.router.navigateByUrl("/inicioSesion");
-        window.location.reload();
       });
     } else {
       this.message = " * Las contraseñas no son identicas";

@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,7 +30,7 @@ export function jwtOptionsFactory(tokenService: JwtTokenService) {
       return tokenService.token;
     },
     whitelistedDomains: ["localhost:3000"],
-    blacklistedRouters: ["localhost:3000/login"]
+    blacklistedRouters: ["localhost:3000/login", "localhost:3000/inicio"]
   }
 }
 
@@ -48,7 +48,7 @@ export function jwtOptionsFactory(tokenService: JwtTokenService) {
     ListaUsuariosComponent,
     EdicionUsuariosComponent,
     CrearProductoComponent,
-    ProductoEditarComponent,
+    ProductoEditarComponent
     
     
   ],

@@ -1,24 +1,194 @@
 <img src="../../assets/ExodusInicio.svg" alt="">
-<svg id="Capa_3" data-name="Capa 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 17"><title>Linea</title><rect x="104.5" y="5.5" width="1711" height="6"/><path d="M1815,6v5H105V6H1815m1-1H104v7H1816V5Z"/></svg>
+<svg id="Capa_3" data-name="Capa 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 17">
+	<title>Linea</title>
+	<rect x="104.5" y="5.5" width="1711" height="6" />
+	<path d="M1815,6v5H105V6H1815m1-1H104v7H1816V5Z" />
+</svg>
 
-<div id="contenedorInfo" class="container-fluid"> <!-- Contenedor de inicio -->
+
+<!-- Publicaciones publicas -->
+
+<div id="contenedorInfoTitulo" class="row">
+	<div class="col-md-4">
+	</div>
+	<div class="col-md-4 sectionOne">
+		<h3 class="text-center">
+			Publicaciones publicas
+		</h3>
+		<hr style="background-color: black;">
+	</div>
+	<div class="col-md-4">
+	</div>
+</div>
+
+<div class="contenedor-cartas">
+	<div class="cartas">
+		<div class="card" *ngFor="let producto of publicacionesPublicas">
+			<img src="{{images[0]}}" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h5 class="card-title">{{producto.titulo}}</h5>
+				<hr>
+				<p class="card-text">{{producto.texto_completo}}</p>
+				<hr>
+				<p class="card-text">{{producto.valor}}</p>
+			</div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item"></li>
+			</ul>
+			<div class="card-body">
+				<!-- Boton Detalles -->
+				<ng-template [ngIf]="!esVisitante">
+					<button style="margin-right: 10px;" type="button" (click)="irADetalles(producto.id)"
+						class="btn btn-primary">Detalles</button>
+				</ng-template>
+				<!-- Boton Editar -->
+				<ng-template [ngIf]="esEditor || esAdmin || esRedactor">
+					<button style="margin-right: 10px;" type="button" (click)="editarProducto(producto.id)"
+						class="btn btn-primary">Editar</button>
+				</ng-template>
+				<!-- Boton Borrar -->
+				<ng-template [ngIf]="esEditor || esAdmin">
+					<button type="button" (click)="borrarProducto(producto)" class="btn btn-primary">Borrar</button>
+				</ng-template>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="contenedorInfo" class="container-fluid">
+	<!-- Contenedor de inicio -->
 	<div id="contenedorInfoTitulo" class="row">
 		<div class="col-md-4">
 		</div>
 		<div class="col-md-4 sectionOne">
 			<h3 class="text-center">
-				Que hacemos
+				Exodus
 			</h3>
 			<hr style="background-color: black;">
 		</div>
 		<div class="col-md-4">
 		</div>
 	</div>
+
 	<div class="row" class="contenedorInfoInformacion">
-		<div class="col">
-			<p >
-				Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+		<div class="col Nosotros">
+			<p>
+				Exodus es un proyecto hecho con software libre en el cual estamos implicados tres personas: Manuel
+				Alejandro Higueras, Alex Fandiño y Alvaro Monge. Nuestro proyecto aborda las tres partes fundamentales
+				de una pagina web, un Frontend hecho con Bootstrap y Angular , un Backend programado con NodeJs y Nest,
+				y MYSQL como sistema gestor de base de datos. Registrate  para interactuar con nosotros!!!. Nuestra aplicacion dispone de tres apartados. Inicio, en el cual encontraras las publicaciones 
+				publicadas que sean publicas y una tabla de requisitos tanto cumplidos como no cumplidos. Despues un apartado de publicaciones tanto 
+				publicas como no publicas en el caso de estar registrado y la opcion ,segun el rango que seas, de editar, crear, borrar y ver las publicaciones. Por ultimo, 
+				dispondras de la oportunidad de contactarnos a traves de tu correo. Gracias por confiar en Exodus!!!
 			</p>
 		</div>
+	</div>
+</div>
+<div id="contenedorInfo2" class="container-fluid">
+	<!-- Contenedor de inicio -->
+	<div id="contenedorInfoTitulo" class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4 sectionOne">
+			<h3 class="text-center">
+				Requisitos
+			</h3>
+			<hr style="background-color: black;">
+		</div>
+		<div class="col-md-4">
+		</div>
+	</div>
+
+	<div class="row" class="contenedorRequisitos">
+
+		<table class="table Requisitos table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Requisitos</th>
+					<th scope="col">Descripcion</th>
+					<th scope="col">Hecho</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row" style="color:indigo">Tecnologias</th>
+					<td class="table-format">Angular, NodeJs, Nest , MYSQL</td>
+					<td><img class="check" src="../../assets/imagenes/Done.svg"></td>
+				</tr>
+				<tr>
+					<th scope="row" style="color: rgb(31, 121, 31);">Modelo de Datos</th>
+					<td class="table-format">Usuarios, Publicaciones, Menus</td>
+					<td><img class="check" src="../../assets/imagenes/Done.svg"></td>
+				</tr>
+				<tr>
+					<th scope="row" style="color: rgb(31, 121, 31);">Modelo de Datos</th>
+					<td class="table-format">Menu Item, Roles</td>
+					<td><img class="check" src="../../assets/imagenes/NotDone.svg"></td>
+				</tr>
+				<tr>
+					<th scope="row" style="color:rgb(32, 95, 178)">Backend</th>
+					<td class="table-format">Gestion de Registro, Servicio de Login y Gestion de Usuarios</td>
+					<td><img class="check" src="../../assets/imagenes/Done.svg"></td>
+				</tr>
+				<tr>
+					<th scope="row" style="color:rgb(32, 95, 178)">Backend</th>
+					<td class="table-format">Dar de alta un suscriptor sin pasar por el registro</td>
+					<td><img class="check" src="../../assets/imagenes/NotDone.svg"></td>
+				</tr>
+				<tr>
+					<th scope="row" style="color:rgb(32, 95, 178)">Backend</th>
+					<td class="table-format">Crear un Backend Rest de publicaciones y menus</td>
+					<td><img class="check" src="../../assets/imagenes/Done.svg"></td>
+				</tr>
+				<tr>
+					<th scope="row" style="color:rgb(32, 95, 178)">Backend</th>
+					<td class="table-format">Acceso a backend mediante Token API</td>
+					<td><img class="check" src="../../assets/imagenes/Done.svg"></td>
+				</tr>
+				<tr>
+					<th scope="row" style="color:rgb(32, 95, 178)">Backend</th>
+					<td class="table-format">El backend tirara de la base de datos MYSQL</td>
+					<td><img class="check" src="../../assets/imagenes/Done.svg"></td>
+				</tr>
+				<tr>
+					<th scope="row" style="color:rgb(196, 11, 11)">Frontend</th>
+					<td class="table-format">Crea un frontend Angular que sea capaz de registrarse, loguearse en el
+						backend de usuarios</td>
+					<td><img class="check" src="../../assets/imagenes/Done.svg"></td>
+				</tr>
+				<tr>
+					<th scope="row" style="color:rgb(196, 11, 11)">Frontend</th>
+					<td class="table-format">Suscripcion y Desuscripcion del Boletin</td>
+					<td><img class="check" src="../../assets/imagenes/NotDone.svg"></td>
+				</tr>
+				<tr>
+					<th scope="row" style="color:rgb(196, 11, 11)">Frontend</th>
+					<td class="table-format">Backend Menus</td>
+					<td><img class="check" src="../../assets/imagenes/NotDone.svg"></td>
+				</tr>
+				<tr>
+					<th scope="row" style="color:rgb(196, 11, 11)">Frontend</th>
+					<td class="table-format">Backend Publicaciones</td>
+					<td><img class="check" src="../../assets/imagenes/Done.svg"></td>
+				</tr>
+				<tr>
+					<th scope="row" style="color:rgb(196, 11, 11)">Frontend</th>
+					<td class="table-format">Plantilla por Publicacion</td>
+					<td><img class="check" src="../../assets/imagenes/Done.svg"></td>
+				</tr>
+				<tr>
+					<th scope="row" style="color:rgb(196, 11, 11)">Frontend</th>
+					<td class="table-format">Contenidos Publicos</td>
+					<td><img class="check" src="../../assets/imagenes/Done.svg"></td>
+				</tr>
+				<tr>
+					<th scope="row" style="color:rgb(196, 11, 11)">Frontend</th>
+					<td class="table-format">Area de Administracion para Usuarios y Publicaciones</td>
+					<td><img class="check" src="../../assets/imagenes/Done.svg"></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </div>

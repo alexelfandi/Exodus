@@ -19,7 +19,8 @@ export class User {
 
     email : string
 
-    @Column()
+
+    @Column({nullable: true})
 
     avatar : string
 
@@ -34,7 +35,7 @@ export class User {
 
     grupo : string
 
-    @Column()
+    @Column({nullable: true})
 
     API_TOKEN_KEY : string
 
@@ -42,11 +43,11 @@ export class User {
 
     version : string
 
-    @Column()
+    @Column({type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
 
     fecha_creacion : Date
 
-    @Column()
+    @Column({nullable: true})
 
     fecha_ultima_mod : Date
 

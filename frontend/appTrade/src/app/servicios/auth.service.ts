@@ -17,27 +17,18 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   register(user: Cuenta): Observable<JwtResponseI>{
-    return this.http.post<JwtResponseI>(`${this.AUTH_SERVER}/register`, user)
+    return this.http.post<JwtResponseI>(`${this.AUTH_SERVER}/user`, user)
     .pipe(tap(
       (res:JwtResponseI)=>{
         if (res) {
-          this.saveToken(res.dataUser.accessToken, res.dataUser.expiresIn);
+          this.saveToken(res.dataUser.access_token, res.dataUser.expiresIn);
         }
       }
     ));
   }
 
-  login(user: Cuenta): Observable<JwtResponseI>{
-    return this.http.post<JwtResponseI>(`${this.AUTH_SERVER}/login`, user)
-    .pipe(tap(
-      (res:JwtResponseI)=>{
-        if (res) {
-          console.log(res);
-          
-          this.saveToken(res.dataUser.accessToken, res.dataUser.expiresIn);
-        }
-      }
-    ));
+  login(user: Cuenta): Observable<any>{
+    return this.http.post<any>(`http://localhost:3000/user/auth/login`, user);
   }
 
   logout(): void{
@@ -49,7 +40,7 @@ export class AuthService {
     window.location.reload();
   }
 
-  private saveToken(token: string, expireIn: string): void{
+  public saveToken(token: string, expireIn: string): void{
     localStorage.setItem("ACCESS_TOKEN", token);
     localStorage.setItem("EXPIRED_IN", expireIn);
     this.token = token
@@ -66,10 +57,26 @@ export class AuthService {
     let rol = localStorage.getItem("usuarioRole");
 
     if (rol == "admin") {
-      return true;
-    } else {
-      return false;
+
+      return "admin";
+      
+    } else if (rol=="editor") {
+
+      return "editor";
+
+    }else if(rol=="visitante"){
+
+      return "visitante";
+
+    }else if(rol=="suscriptor"){
+
+    return "suscriptor";
+
+    }else if(rol=="redactor"){
+
+      return "redactor";
     }
+
   }
 
   isLogged(): boolean{

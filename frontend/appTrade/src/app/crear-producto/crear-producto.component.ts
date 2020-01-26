@@ -19,8 +19,11 @@ export class CrearProductoComponent implements OnInit {
   }
 
   crearProducto(nuevoproducto :Producto):void {
+    console.log(nuevoproducto);
+    
     this.servicio.crearProducto(nuevoproducto).subscribe((datos)=>{
-      console.log(nuevoproducto);
+      console.log("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEee"+datos);
+      
       
     })
   }

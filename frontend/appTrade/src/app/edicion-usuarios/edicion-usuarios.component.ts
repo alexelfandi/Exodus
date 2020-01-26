@@ -19,6 +19,7 @@ export class EdicionUsuariosComponent implements OnInit {
     this.activeRouter.params.subscribe((datos)=>{
       
       this.usuarioService.getUsuarioById(datos.id).subscribe((user)=>{
+        console.log("USER", user);
         
         this.usuario = user;
           

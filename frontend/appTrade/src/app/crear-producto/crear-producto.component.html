@@ -1,4 +1,7 @@
-<h2>Crear producto</h2>
+<div class="contenedorTitulo">
+    <h3>Crear contacto</h3>
+</div>
+
 <div class="contenedorInicioSesion">
     <form class="">
         <table >
@@ -6,30 +9,41 @@
                 <td><label for="nombre">Nombre</label></td>
             </tr>
             <tr>
-                <td><input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="producto.nombre" required /></td>
+                <td><input type="text" name="nombre" class="form-control" ng-pattern="[0-9]" id="nombre" [(ngModel)]="producto.titulo" required /></td>
             </tr>
             <tr>
                 <td><label for="valor">Valor</label></td>
             </tr>
             <tr>
-                <td><input type="text" name="valor" class="form-control" id="valor" [(ngModel)]="producto.valor" required /></td>
+                <td><input type="number" name="valor" class="form-control" id="valor" [(ngModel)]="producto.valor" required /></td>
             </tr>
             <tr>
                 <td><label for="descripcion">Descripcion</label></td>
             </tr>
             <tr>
                 <td>
-                    <textarea class="form-control" name="descripcion" id="descripcion" [(ngModel)]="producto.descripcion" cols="30" rows="10"></textarea>
+                    <textarea class="form-control" name="descripcion" id="descripcion" [(ngModel)]="producto.texto_completo" cols="30" rows="10"></textarea>
                 </td>
             </tr>
             <tr>
                 <td><label for="referencia">Referencia</label></td>
             </tr>
-            <!-- 
+            <select name="referencia" class="form-control" [(ngModel)]="producto.tags" required>
+                <option value="Tecnologia">Tecnologia</option> 
+                <option value="Hogar" selected>Hogar</option>
+                <option value="Baño">Baño</option>
+            </select>
             <tr>
-                <td><input type="text" name="referencia" class="form-control" id="nombre" [(ngModel)]="producto.nombre" required /></td>
+                <td><label for="referencia">Publica</label></td>
             </tr>
-            -->
+            <select name="referencia" class="form-control" [(ngModel)]="producto.publico" required>
+                <option value="true" selected>Si</option> 
+                <option value="false">No</option>
+            </select>
+            <!--<tr>
+                 <td><input type="text" name="referencia" class="form-control" id="tag" [(ngModel)]="producto.tags" required/></td>
+            </tr> -->
+            
             <tr>
                 <td><hr></td>
             </tr>

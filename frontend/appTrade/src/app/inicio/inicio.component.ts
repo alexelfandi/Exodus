@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtTokenService } from '../servicios/jwt-token.service';
 import { AuthService } from '../servicios/auth.service';
+import { ProductosService } from '../servicios/productos.service';
+import { Producto } from '../dominio/producto';
 
 @Component({
   selector: 'app-inicio',
@@ -9,11 +11,22 @@ import { AuthService } from '../servicios/auth.service';
 })
 export class InicioComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+
+  publicacionesPublicas: Producto[] = [];
+  images: string[] = [
+    "../../assets/imagenes/1.png",
+    "../../assets/imagenes/2.jpg",
+    "../../assets/imagenes/3.jpg"
+
+  ];
+
+  constructor(private authService: AuthService, private productosService: ProductosService) { }
 
   ngOnInit() {
-    
-    
+    this.productosService.getProductosPublicos().subscribe((productos)=>{
+      console.log(productos);
+      
+      this.publicacionesPublicas = productos.filter((p)=>p.publico == true);;
+    });
   }
-
 }

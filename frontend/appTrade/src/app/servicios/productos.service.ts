@@ -15,14 +15,21 @@ export class ProductosService {
   }
 
   public getProductos(): Observable<Producto[]>{
-    return this.http.get<Producto[]>("http://localhost:3000/lista");
+    return this.http.get<Producto[]>("http://localhost:3000/publicacion");
+    
+  }
+  public getProductosPublicos(): Observable<Producto[]>{
+    return this.http.get<Producto[]>("http://localhost:3000/publicacion/publicos");
     
   }
 
-  public borrarProducto(producto: Producto): Observable<Producto>{
-    return this.http.post<Producto>("http://localhost:3000/borrarProducto", producto);
+  public borrarProducto(id : number): Observable<Producto>{
+    return this.http.delete<Producto>("http://localhost:3000/publicacion/" + id);
   }
   public crearProducto(nuevoProducto:Producto): Observable<Producto>{
-    return this.http.post<Producto>("http://localhost:3000/crearProducto", nuevoProducto)
+    return this.http.post<Producto>("http://localhost:3000/publicacion", nuevoProducto)
+  }
+  public editarProducto(producto : Producto):Observable<Producto>{
+    return this.http.put<Producto>("http://localhost:3000/publicacion", producto);
   }
 }

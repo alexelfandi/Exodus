@@ -7,11 +7,56 @@
 #contenedorInfoTitulo h3 {
     font-size: 50px;
 }
-.contenedorInfoInformacion * {
-    font-size: 20px;
+.contenedorInfoInformacion {
+    font-size: 20px; width: 100%;
+    display: flex;
+    justify-content: center;
     text-align: justify;
+   
 }
-
+.Nosotros{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+.Nosotros p{
+    width: 80%;
+}
+.contenedorRequisitos{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+ 
+}
+.Requisitos{
+    width: 80%;
+}
+.table-format{
+    width: 80%;
+}
+.check{
+    width: 20%;
+}
+/* CARTAS ------------------------------------------------- */
+.contenedor-cartas {
+    width:          100%;
+    display:        flex;
+    justify-content: center;
+}
+.cartas{
+    margin:         10px;
+    width:          90%;
+    display:        flex;
+    flex-wrap:      wrap;
+}
+.subContenedor {
+    width:          80%;
+}
+.card {
+    width:          20%;
+    margin-left:    40px;
+    margin-top:     40px;
+}
 /* MEDIA QUERIES -------------------------------------------------------- */
 
 @media screen and (max-width: 900px) {

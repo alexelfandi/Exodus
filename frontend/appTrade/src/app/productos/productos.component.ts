@@ -16,6 +16,14 @@ import { NgbSlideEvent, NgbSlideEventSource, NgbCarousel } from '@ng-bootstrap/n
 export class ProductosComponent implements OnInit {
 
   esAdmin: boolean = false;
+  esVisitante :boolean = false;
+  esRedactor :boolean = false;
+  esSuscriptor :boolean = false;
+  esEditor :boolean = false;
+
+
+
+
 
   public listaProductos: Producto[] = [];
 
@@ -47,7 +55,20 @@ export class ProductosComponent implements OnInit {
       console.log(this.listaProductos);
     });
 
-    this.esAdmin = this.authService.checkRole();
+
+
+    
+    if(this.authService.checkRole() == "admin"){
+      this.esAdmin =true;
+    }else if(this.authService.checkRole() == "visitante"){
+      this.esVisitante= true;
+    }else if(this.authService.checkRole() == "redactor"){
+      this.esRedactor=true;
+    }else if(this.authService.checkRole() == "editor"){
+      this.esEditor=true;
+    }else if(this.authService.checkRole() == "suscriptor"){
+      this.esSuscriptor=true;
+    }
 
   }
 
@@ -61,9 +82,13 @@ export class ProductosComponent implements OnInit {
     this.router.navigateByUrl(`/productoDetalles/${id}`);
   }
 
-  borrarProducto(producto: Producto): void {
+  editarProducto(id: number): void {
+    this.router.navigateByUrl(`/editarProducto/${id}`);
+  }
 
-    this.productosService.borrarProducto(producto).subscribe((datos) => {
+  borrarProducto(producto : Producto): void {
+
+    this.productosService.borrarProducto(producto.id).subscribe((datos) => {
       this.productosService.getProductos().subscribe((datos) => {
         this.listaProductos = datos;
         console.log(this.listaProductos);
@@ -89,7 +114,7 @@ export class ProductosComponent implements OnInit {
       // Filtra y devuelve un array con un solo elemento dentro
       this.productosService.getProductos().subscribe((datos) => {
         this.listaProductos = datos;
-        this.listaProductos = this.listaProductos.filter((p)=>p.nombre == this.filtrado);
+        this.listaProductos = this.listaProductos.filter((p)=>p.titulo == this.filtrado);
       });
       
       

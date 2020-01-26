@@ -1,4 +1,7 @@
-<h2>Edicion</h2>
+<div class="contenedorTitulo">
+    <h3>Editar usuario</h3>
+</div>
+
 
 <form action="#" >
     <table>
@@ -15,13 +18,9 @@
             <td><input class="form-control" name="email" type="text" value="{{usuario.email}}" [(ngModel)]="usuario.email"></td>
         </tr>
         <tr>
-            <td>password: </td>
-            <td><input class="form-control" name="password" type="text" value="{{usuario.password}}" [(ngModel)]="usuario.password"></td>
-        </tr>
-        <tr>
             <td>active:</td>
             <td>
-                    <select  [(ngModel)]="usuario.active" class="form-control" name="actve" id="active">
+                    <select  [(ngModel)]="usuario.activo" class="form-control" name="actve" id="active">
                         <option value="true">yes</option>
                         <option value="false">no</option>
                     </select>
@@ -30,9 +29,12 @@
         <tr>
             <td>Rol:</td>
             <td>
-                    <select  [(ngModel)]="usuario.rol" class="form-control" name="rol" id="rol">
-                        <option value="admin">admin</option>
-                        <option value="common">common</option>
+                    <select  [(ngModel)]="usuario.grupo" class="form-control" name="rol" id="rol">
+                        <option value="admin">Admin</option>
+                        <option value="visitante">Visitante</option>
+                        <option value="editor">Editor</option>
+                        <option value="suscriptor">Suscriptor</option>
+                        <option value="redactor">Redactor</option>
                     </select>
             </td>
         </tr>

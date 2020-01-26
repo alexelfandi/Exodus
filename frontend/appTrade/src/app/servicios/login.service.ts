@@ -11,13 +11,12 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   public login(usuario: Cuenta): Observable<Cuenta>{
-    console.log(usuario);
     
-    return this.http.post<Cuenta>("http://localhost:3000/login", usuario);
+    return this.http.post<Cuenta>("http://localhost:3000/user/auth/login", usuario);
   }
 
-  public register(usuario: Cuenta){
-    return this.http.post<Cuenta>("http://localhost:3000/register", usuario);
+  public register(usuario: Cuenta):  Observable<Cuenta> | undefined{
+    return this.http.post<Cuenta>("http://localhost:3000/user", usuario);
   }
 
   public isLogged(): boolean{
