@@ -1,8 +1,12 @@
-# Exodus
+# Proyecto Exodus, 
 
 ## Introduccion
 
 Proyecto para gestamp hecho en angular.
+
+## Build
+
+- ng build para construir el proyecto. Los componentes de la compilación se almacenarán en el directorio dist /. Use el indicador --prod para una compilación de producción.
 
 ## Si no tienes la carpeta modules, desde /servidor y /apptrade
 
