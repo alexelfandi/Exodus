@@ -2,7 +2,7 @@
     <h3>Registro</h3>
 </div>
 
-<div class="contenedorInicioSesion">
+<div style="margin-top: 70px; margin-bottom: 70px;" class="contenedorInicioSesion">
     <form action="" method="POST" >
         <table >
             <tr>
@@ -18,7 +18,7 @@
                 <td><label for="email">Email</label></td>
             </tr>
             <tr>
-                <td><input type="email" name="email" class="form-control" id="email"  [(ngModel)]="usuario.email" required></td>
+                <td><input type="email" name="email" class="form-control" id="email"  [(ngModel)]="usuario.email" email required></td>
             </tr>
             <tr>
                 <td><label for="password">Password</label></td>
@@ -36,7 +36,7 @@
                 <td><hr></td>
             </tr>
             <tr>
-                <td><input type="button" class="form-control" id="enviar" (click)="register(usuario)" value="Registrar"></td>
+                <td><input type="submit" class="form-control" id="enviar" (click)="register(usuario)" value="Registrar"></td>
             </tr>
             <tr>
                 <td>ya tienes cuenta? <a [routerLink]="['/inicioSesion']">inicia sesion</a></td>
