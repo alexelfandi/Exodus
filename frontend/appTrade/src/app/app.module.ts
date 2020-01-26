@@ -30,7 +30,7 @@ export function jwtOptionsFactory(tokenService: JwtTokenService) {
       return tokenService.token;
     },
     whitelistedDomains: ["localhost:3000"],
-    blacklistedRouters: ["localhost:3000/login"]
+    blacklistedRouters: ["localhost:3000/login", "localhost:3000/inicio"]
   }
 }
 

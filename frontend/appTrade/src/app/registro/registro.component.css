@@ -22,3 +22,19 @@ h2 {
 .contenedorInicioSesion table td {
     margin-top: 200px;
 }
+
+.contenedorTitulo {
+    display: flex;
+    background-image: url("../../assets/imagenes/Titulos.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 104px;
+    justify-content: center;
+    align-items: center;
+}
+.contenedorTitulo h3 {
+    font-size: 4vw;
+    text-align: center;
+    color: white;
+}
+
