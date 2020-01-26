@@ -13,6 +13,7 @@ export class ProductoEditarComponent implements OnInit {
   listaProductos: Producto[]=[];
   idProducto: number;
   producto: Producto;
+  message: string = "";
 
   constructor(private productosService: ProductosService, private activatedRouter: ActivatedRoute, private router : Router) { }
 
@@ -30,10 +31,15 @@ export class ProductoEditarComponent implements OnInit {
     });
   }
 
-  salvar(producto : Producto){
+  salvar(nuevoproducto : Producto){
    
-    this.productosService.editarProducto(producto).subscribe((datos)=>{
-      this.router.navigateByUrl("/productos");
-    })
+    if (nuevoproducto.titulo == "" || nuevoproducto.valor == null || nuevoproducto.tipo == "" || nuevoproducto.tags == "" || nuevoproducto.texto_completo == "") {
+      this.message = "Todos los campso deben estar rellenados"
+    } else {
+      this.productosService.editarProducto(nuevoproducto).subscribe((datos)=>{
+            this.router.navigateByUrl("/productos");
+      })
+    }
+    
   }
 }

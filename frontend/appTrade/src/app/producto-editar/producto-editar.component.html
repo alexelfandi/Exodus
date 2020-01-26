@@ -4,6 +4,10 @@
 <form (ngSubmit)="salvar(producto)">
     <table>
         <tr>
+            <td>-</td>
+            <td><p style="color: red;">{{message}}</p></td>
+        </tr>
+        <tr>
             <td><label for="nombre">Nombre:</label></td>
             <td><input class="form-control" type="text" [(ngModel)]="producto.titulo" name="nombre" /></td>
         </tr>
