@@ -8,7 +8,6 @@ export class PublicacionController {
 
     constructor(private readonly myService : PublicacionService){}
 
-    @UseGuards(AuthGuard('local'))
     @Get('publicos')
     getDatosPublicos(): Promise <Publicacion[]> {
         return this.myService.BuscalosTodosPublicos();
@@ -20,19 +19,16 @@ export class PublicacionController {
         return this.myService.BuscalosTodos();
     }
 
-    @UseGuards(AuthGuard('local'))
     @Get(':id')
     getPorId(@Param('id') id:number): Promise <Publicacion> {
         return this.myService.BuscarporId(id);
     }
 
-    @UseGuards(AuthGuard('local'))
     @Post()
     async create(@Body() dato: Publicacion):Promise<Publicacion> {
         return this.myService.save(dato);
     }
 
-    @UseGuards(AuthGuard('local'))
     @Put()
     async update( @Body() publicacion: Publicacion): Promise<Publicacion> {
       let publicacionnueva = await this.myService.BuscarporId(publicacion.id);
@@ -40,7 +36,6 @@ export class PublicacionController {
       return this.myService.save(publicacionnueva);
     }
 
-    @UseGuards(AuthGuard('local'))
     @Delete(':id')
     remove(@Param('id') id: number) {
       return this.myService.Eliminar(id);

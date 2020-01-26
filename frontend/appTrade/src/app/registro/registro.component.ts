@@ -26,21 +26,27 @@ export class RegistroComponent implements OnInit {
 
   register(usuario: Cuenta){
     
-
-    if (this.password2 == usuario.password) {
-
-      usuario.activo = true;
-      usuario.grupo = "visitante";
-      this.loginService.register(usuario).subscribe((datos)=>{
-        console.log("datos en el servicio frontend", datos);
-        
-        
-        this.router.navigateByUrl("/inicioSesion");
-      });
-    } else {
-      this.message = " * Las contraseñas no son identicas";
+    if (usuario.username == "" || usuario.email == "" || usuario.password == "") {
       
+      this.message = "Los campos no pueden quedar vacios";
+
+    } else {
+      if (this.password2 == usuario.password) {
+
+        usuario.activo = true;
+        usuario.grupo = "visitante";
+        this.loginService.register(usuario).subscribe((datos)=>{
+          console.log("datos en el servicio frontend", datos);
+          
+          
+          this.router.navigateByUrl("/inicioSesion");
+        });
+      } else {
+        this.message = " * Las contraseñas no son identicas";
+        
+      }
     }
+
 
   }
 
