@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EdicionUsuariosComponent implements OnInit {
 
   usuario: Cuenta = new Cuenta();
+  message: string = "";
 
   constructor(private usuarioService: UsuariosService, private activeRouter: ActivatedRoute, private router: Router) { }
 
@@ -31,11 +32,16 @@ export class EdicionUsuariosComponent implements OnInit {
 
   editar(usuario: Cuenta){
     
-    this.usuarioService.editarUsuario(usuario).subscribe((datos)=>{
+    if (usuario.username == "" || usuario.email == "" || usuario.grupo || usuario.activo == null) {
+      this.message = "Los campos no pueden quedar vacios"
+    } else {
+      this.usuarioService.editarUsuario(usuario).subscribe((datos)=>{
       
       this.router.navigateByUrl("/listaUsuarios")
       
     });
+    }
+    
 
   }
 
