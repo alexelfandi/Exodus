@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-  <a href="https://www.mysql.com/" target="blank"><img src="https://img2.freepng.es/20180702/ruv/kisspng-mysql-database-encapsulated-postscript-logo-jquery-5b3ad07be4bce4.8300626315305811159369.jpg" width="320" alt="MySQL Logo" /></a>
+  <a href="https://www.mysql.com/" target="blank"><img src="https://img2.freepng.es/20180702/ruv/kisspng-mysql-database-encapsulated-postscript-logo-jquery-5b3ad07be4bce4.8300626315305811159369.jpg" width="200" alt="MySQL Logo" /></a>
 </p>
 
 [travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
