@@ -25,6 +25,8 @@ export class InicioComponent implements OnInit {
   ngOnInit() {
     
     this.productosService.getProductos().subscribe((productos)=>{
+      console.log(productos);
+      
       this.publicacionesPublicas = productos.filter((p)=>p.publico == true);;
     });
   }
