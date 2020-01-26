@@ -1,0 +1,11 @@
+.contenedor{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 2%;
+}
+.detalles{
+    
+    width:80%;
+    
+}
