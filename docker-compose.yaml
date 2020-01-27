@@ -22,8 +22,8 @@ services:
     depends_on:
       - mongo
     environment:
-      DATABASE_URL: mysql8://mysql8:8080/user
-  mongo:
-    image: mysql8:4.0.6
+      DATABASE_URL: mysql57://mysql57:3306/user
+  mysql:
+    image: mysql57:5.7.29
     ports:
-      - "27017:27017"
+      - "3306:3306"
