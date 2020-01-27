@@ -8,7 +8,7 @@ Proyecto para gestamp hecho en Angular, con un servidor Nestjs, Swagger y bbdd M
 
 - ng build para construir el proyecto. Los componentes de la compilación se almacenarán en el directorio dist /. Use el indicador --prod para una compilación de producción.
 
-## Si no tienes la carpeta modules, desde /servidor y /apptrade
+## Si no tienes la carpeta modules, desde /servidor-nest y /apptrade
 
 - npm install
 
@@ -22,6 +22,8 @@ Proyecto para gestamp hecho en Angular, con un servidor Nestjs, Swagger y bbdd M
 ## Iniciar servidor Nestjs desde /servidor
 
 - npm run start
+
+## Una vez iniciado el servidor hay que crear en la base de datos MySQL que se llame "Exdous"
 
 # Documentacion del servidor
 
