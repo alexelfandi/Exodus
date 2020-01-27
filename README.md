@@ -23,7 +23,7 @@ Proyecto para gestamp hecho en Angular, con un servidor Nestjs, Swagger y bbdd M
 
 - npm run start
 
-## Una vez iniciado el servidor hay que crear en la base de datos MySQL que se llame "Exdous"
+## Una vez iniciado el servidor hay que crear en la base de datos MySQL que se llame "Exodus"
 
 # Documentacion del servidor
 
