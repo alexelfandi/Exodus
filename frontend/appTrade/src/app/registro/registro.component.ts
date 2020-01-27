@@ -26,7 +26,7 @@ export class RegistroComponent implements OnInit {
 
   register(usuario: Cuenta){
     
-    if (usuario.username == "" || usuario.email == "" || usuario.password == "") {
+    if (usuario.username == "" || usuario.email == "" || usuario.password == "" || usuario.username == null || usuario.email == null) {
       
       this.message = "Los campos no pueden quedar vacios";
 
